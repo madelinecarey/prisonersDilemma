@@ -1,18 +1,18 @@
 import java.awt.Color;
 
-public class iran extends oil {
+public class apple extends tech {
 	
-	public iran(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
+	public apple(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
 		super(myBudget, myLocation, myColor, myWorld, myInfluence, typeOfCompany);
 		typeOfCompany = "collusive";
 	}
 	
 	public boolean typeOfCompany() {
 		if (typeOfCompany == "collusive") {
-			myColor = Color.LIGHT_GRAY;
+			myColor = Color.BLUE;
 			return true;
 		}
-		myColor = Color.DARK_GRAY;
+		myColor = Color.CYAN;
 		return false;
 	}
 	
@@ -20,7 +20,7 @@ public class iran extends oil {
 //		int x = Location.getX();
 //		int newX = (Location.getX() + 1);
 //		int newY = (Location.getY()); 
-//		myWorld.getCreatureList().add(new iran(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
+//		myWorld.getCreatureList().add(new apple(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
 //	}
 
 

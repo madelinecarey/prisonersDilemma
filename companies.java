@@ -13,13 +13,14 @@ public abstract class companies {
 	protected String typeOfCompany;
 	
 	// lifeform constructors
-	public companies(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence) {
+	public companies(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
 		super();
 		this.myBudget = myBudget;
 		this.myLocation = myLocation;
 		this.myColor = myColor;
 		this.myWorld = myWorld;
 		this.myInfluence = myInfluence;
+		this.typeOfCompany = typeOfCompany;
 		alive = true;
 	}
 	

@@ -1,11 +1,10 @@
-
 import java.awt.Color;
 
-public class saudiArabia extends oil {
+public class BMW extends auto {
 	
-	public saudiArabia(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
+	public BMW(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
 		super(myBudget, myLocation, myColor, myWorld, myInfluence, typeOfCompany);
-		typeOfCompany = "defective";
+		typeOfCompany = "collusive";
 	}
 	
 	public boolean typeOfCompany() {
@@ -21,7 +20,7 @@ public class saudiArabia extends oil {
 //	int x = Location.getX();
 //	int newX = (Location.getX() + 1);
 //	int newY = (Location.getY()); 
-//	myWorld.getCreatureList().add(new saudiArabia(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
+//	myWorld.getCreatureList().add(new BMW(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
 //}
 
 

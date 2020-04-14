@@ -1,27 +1,26 @@
-
 import java.awt.Color;
 
-public class saudiArabia extends oil {
+public class ford extends auto {
 	
-	public saudiArabia(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
+	public ford(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
 		super(myBudget, myLocation, myColor, myWorld, myInfluence, typeOfCompany);
 		typeOfCompany = "defective";
 	}
 	
 	public boolean typeOfCompany() {
 		if (typeOfCompany == "collusive") {
-			myColor = Color.LIGHT_GRAY;
+			myColor = Color.red;
 			return true;
 		}
-		myColor = Color.DARK_GRAY;
+		myColor = Color.pink;
 		return false;
-	}
+	}e
 	
 //	public void reproduce() {
 //	int x = Location.getX();
 //	int newX = (Location.getX() + 1);
 //	int newY = (Location.getY()); 
-//	myWorld.getCreatureList().add(new saudiArabia(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
+//	myWorld.getCreatureList().add(new ford(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
 //}
 
 

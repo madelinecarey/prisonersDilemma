@@ -3,9 +3,8 @@ import java.awt.Color;
 
 public abstract class oil extends companies {
 
-	public oil(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence) {
-		super(myBudget, myLocation, myColor, myWorld, myInfluence);
-		myColor = Color.BLACK;
+	public oil(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
+		super(myBudget, myLocation, myColor, myWorld, myInfluence, typeOfCompany);
 	}
 
 	public oil(Location l, World w) {
