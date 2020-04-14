@@ -2,17 +2,15 @@ import java.util.ArrayList;
 
 public class World {
 	
-	//test
-	
 	private int width;
 	private int height;
-	private ArrayList<LifeForm> creatureList;
+	private ArrayList<companies> creatureList;
 	
 	public World(int width, int height) {
 		super();
 		this.width = width;
 		this.height = height;
-		this.creatureList = new ArrayList<LifeForm>();
+		this.creatureList = new ArrayList<companies>();
 	}
 	
 	public void letTimePass(){
@@ -43,7 +41,7 @@ public class World {
 	}
 	
 	public void creaturesGetOlder(){
-		for( LifeForm l:creatureList){
+		for( companies l:creatureList){
 			l.age(1);
 		}
 	}
@@ -60,10 +58,10 @@ public class World {
 	public void setHeight(int height) {
 		this.height = height;
 	}
-	public ArrayList<LifeForm> getCreatureList() {
+	public ArrayList<companies> getCreatureList() {
 		return creatureList;
 	}
-	public void setCreatureList(ArrayList<LifeForm> creatureList) {
+	public void setCreatureList(ArrayList<companies> creatureList) {
 		this.creatureList = creatureList;
 	}
 
