@@ -1,21 +1,13 @@
+package prisonersDilemma;
 import java.awt.Color;
 
-public class chinaNationalOffshoreOil extends oil {
+public class chinaNationalOffshoreOil extends oilCompany {
 	
-	public chinaNationalOffshoreOil(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
-		super(myBudget, myLocation, myColor, myWorld, myInfluence, typeOfCompany);
-		typeOfCompany = "collusive";
-		myBudget = 98000000;
-		myCountry = "China";
-		myColor = Color.RED;
+	public chinaNationalOffshoreOil(Location myLocation, World myWorld, int myInfluence, double myPrice, int myQuantity) {
+		super(98000000, myLocation, Color.RED, myWorld, myInfluence, "China", true, myPrice, myQuantity);
 	}
+}
 	
-	public boolean typeOfCompany() {
-		if (typeOfCompany == "collusive") {
-			return true;
-		}
-		return false;
-	}
 	
 //	public void reproduce() {
 //		int x = Location.getX();

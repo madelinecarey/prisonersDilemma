@@ -1,16 +1,17 @@
+package prisonersDilemma;
 import java.util.ArrayList;
 
 public class World {
 	
 	private int width;
 	private int height;
-	private ArrayList<companies> creatureList;
+	private ArrayList<Company> companyList;
 	
 	public World(int width, int height) {
 		super();
 		this.width = width;
 		this.height = height;
-		this.creatureList = new ArrayList<companies>();
+		this.companyList = new ArrayList<Company>();
 	}
 	
 	public void letTimePass(){
@@ -18,30 +19,30 @@ public class World {
 		makeNewCreatures();
 		//eatThings();
 		creaturesGetOlder();
-		purgeTheDead();		
+		purgeTheBankrupt();		
 	}
 	
 	public void makeNewCreatures() {
 		
-		int currentSizeOfCreatureList = creatureList.size();
-		System.out.println("size of list is "+currentSizeOfCreatureList);
-		for(int i=0; i< currentSizeOfCreatureList; i++) {
-			creatureList.get(i).reproduce();
+		int currentSizeOfcompanyList = companyList.size();
+		System.out.println("size of list is "+currentSizeOfcompanyList);
+		for(int i=0; i< currentSizeOfcompanyList; i++) {
+			companyList.get(i).reproduce();
 		}
 	}
 	
-	public void purgeTheDead(){
+	public void purgeTheBankrupt(){
 		int i=0;
-		while(i<creatureList.size()){
-			if(creatureList.get(i).isDead())
-				creatureList.remove(i);
+		while(i<companyList.size()){
+			if(companyList.get(i).isBankrupt())
+				companyList.remove(i);
 			else
 				i++;
 		}	
 	}
 	
 	public void creaturesGetOlder(){
-		for( companies l:creatureList){
+		for(Company l:companyList){
 			l.age(1);
 		}
 	}
@@ -58,16 +59,16 @@ public class World {
 	public void setHeight(int height) {
 		this.height = height;
 	}
-	public ArrayList<companies> getCreatureList() {
-		return creatureList;
+	public ArrayList<Company> getcompanyList() {
+		return companyList;
 	}
-	public void setCreatureList(ArrayList<companies> creatureList) {
-		this.creatureList = creatureList;
+	public void setcompanyList(ArrayList<Company> companyList) {
+		this.companyList = companyList;
 	}
 
 	@Override
 	public String toString() {
 		return "World [width=" + width + ", height=" + height
-				+ ", creatureList=" + creatureList + "]";
+				+ ", companyList=" + companyList + "]";
 	}
 }

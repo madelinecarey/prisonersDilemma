@@ -1,3 +1,5 @@
+package prisonersDilemma;
+
 public class Location {
 	
 	private int x;

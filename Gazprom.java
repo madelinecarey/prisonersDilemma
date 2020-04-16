@@ -1,27 +1,9 @@
+package prisonersDilemma;
 import java.awt.Color;
 
-public class Gazprom extends oil {
+public class Gazprom extends oilCompany {
 	
-	public Gazprom(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
-		super(myBudget, myLocation, myColor, myWorld, myInfluence, typeOfCompany);
-		typeOfCompany = "collusive";
-		myBudget = 118000000;
-		myCountry = "Russia";
-		myColor = Color.BLACK;
+	public Gazprom(Location myLocation, World myWorld, int myInfluence, double myPrice, int myQuantity) {
+		super(118000000, myLocation, Color.BLACK, myWorld, myInfluence, "Russia", true, myPrice, myQuantity);
 	}
-	
-	public boolean typeOfCompany() {
-		if (typeOfCompany == "collusive") {
-			return true;
-		}
-		return false;
-	}
-	
-//	public void reproduce() {
-//		int x = Location.getX();
-//		int newX = (Location.getX() + 1);
-//		int newY = (Location.getY()); 
-//		myWorld.getCreatureList().add(new Gazprom(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
-//	}
-
 }

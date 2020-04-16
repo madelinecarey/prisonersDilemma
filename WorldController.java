@@ -1,3 +1,5 @@
+package prisonersDilemma;
+
 import java.awt.Color;
 
 import acm.graphics.*;
@@ -22,8 +24,8 @@ public class WorldController extends GraphicsProgram {
 	
 	public void setUpWorld(){
 		theWorld = new World(20,20);
-		theWorld.getCreatureList().add( new Grass( new Location(3,6), theWorld ));
-		theWorld.getCreatureList().add( new Grass( new Location(4,6), theWorld ));
+		theWorld.getcompanyList().add( new Grass( new Location(3,6), theWorld ));
+		theWorld.getcompanyList().add( new Grass( new Location(4,6), theWorld ));
 		theWorldCanvas = this.getGCanvas();
 	}
 	
@@ -52,7 +54,7 @@ public class WorldController extends GraphicsProgram {
 	}
 	
 	public void drawCreatures(){
-		for(LifeForm x: theWorld.getCreatureList()){
+		for(Companty x: theWorld.getcompanyList()){
 			GRect r = new GRect (x.getMyLocation().getX()*10, x.getMyLocation().getY()*10,10,10);
 			r.setFillColor(x.getMyColor());
 			r.setFilled(true);

@@ -1,28 +1,11 @@
+package prisonersDilemma;
 import java.awt.Color;
 
-public class TotalSA extends oil {
+public class TotalSA extends oilCompany {
 	
-	public TotalSA(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
-		super(myBudget, myLocation, myColor, myWorld, myInfluence, typeOfCompany);
-		typeOfCompany = "collusive";
-		myBudget = 209000000;
-		myCountry = "France";
-		myColor = Color.LIGHT_GRAY;
+	public TotalSA(Location myLocation, World myWorld, int myInfluence, double myPrice, int myQuantity) {
+		super(209000000, myLocation, Color.LIGHT_GRAY, myWorld, myInfluence, "France", true, myPrice, myQuantity);
 	}
-	
-	public boolean typeOfCompany() {
-		if (typeOfCompany == "collusive") {
-			return true;
-		}
-		return false;
-	}
-	
-//	public void reproduce() {
-//		int x = Location.getX();
-//		int newX = (Location.getX() + 1);
-//		int newY = (Location.getY()); 
-//		myWorld.getCreatureList().add(new TotalSA(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
-//	}
-
 
 }
+

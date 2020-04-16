@@ -1,28 +1,10 @@
+package prisonersDilemma;
 import java.awt.Color;
 
-public class Valero extends oil {
+public class Valero extends oilCompany {
 	
-	public Valero(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
-		super(myBudget, myLocation, myColor, myWorld, myInfluence, typeOfCompany);
-		typeOfCompany = "defective";
-		myBudget = 117000000;
-		myCountry = "United States";
-		myColor = Color.CYAN;
+	public Valero(Location myLocation, World myWorld, int myInfluence, double myPrice, int myQuantity) {
+		super(117000000, myLocation, Color.CYAN, myWorld, myInfluence, "United States", false, myPrice, myQuantity);
 	}
-	
-	public boolean typeOfCompany() {
-		if (typeOfCompany == "collusive") {
-			return true;
-		}
-		return false;
-	}
-	
-//	public void reproduce() {
-//		int x = Location.getX();
-//		int newX = (Location.getX() + 1);
-//		int newY = (Location.getY()); 
-//		myWorld.getCreatureList().add(new Valero(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
-//	}
-
 
 }

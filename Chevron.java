@@ -1,28 +1,10 @@
+package prisonersDilemma;
 import java.awt.Color;
 
-public class Chevron extends oil {
+public class Chevron extends oilCompany {
 	
-	public Chevron(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
-		super(myBudget, myLocation, myColor, myWorld, myInfluence, typeOfCompany);
-		typeOfCompany = "defective";
-		myBudget = 159000000;
-		myCountry = "United States";
-		myColor = Color.CYAN;
+	public Chevron(Location myLocation, World myWorld, int myInfluence, double myPrice, int myQuantity) {
+		super(159000000, myLocation, Color.CYAN, myWorld, myInfluence, "United States", false, myPrice, myQuantity);
 	}
-	
-	public boolean typeOfCompany() {
-		if (typeOfCompany == "collusive") {
-			return true;
-		}
-		return false;
-	}
-	
-//	public void reproduce() {
-//		int x = Location.getX();
-//		int newX = (Location.getX() + 1);
-//		int newY = (Location.getY()); 
-//		myWorld.getCreatureList().add(new Chevron(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
-//	}
-
 
 }
