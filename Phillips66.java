@@ -1,18 +1,19 @@
 import java.awt.Color;
 
-public class microsoft extends tech {
+public class Phillips66 extends oil {
 	
-	public microsoft(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
+	public Phillips66(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
 		super(myBudget, myLocation, myColor, myWorld, myInfluence, typeOfCompany);
 		typeOfCompany = "defective";
+		myBudget = 102000000;
+		myCountry = "United States";
+		myColor = Color.CYAN;
 	}
 	
 	public boolean typeOfCompany() {
 		if (typeOfCompany == "collusive") {
-			myColor = Color.BLUE;
 			return true;
 		}
-		myColor = Color.CYAN;
 		return false;
 	}
 	
@@ -20,7 +21,7 @@ public class microsoft extends tech {
 //		int x = Location.getX();
 //		int newX = (Location.getX() + 1);
 //		int newY = (Location.getY()); 
-//		myWorld.getCreatureList().add(new microsoft(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
+//		myWorld.getCreatureList().add(new Phillips66(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
 //	}
 
 

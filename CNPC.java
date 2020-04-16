@@ -1,18 +1,19 @@
 import java.awt.Color;
 
-public class verizon extends cellService {
+public class CNPC extends oil {
 	
-	public verizon(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
+	public CNPC(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
 		super(myBudget, myLocation, myColor, myWorld, myInfluence, typeOfCompany);
 		typeOfCompany = "collusive";
+		myBudget = 392000000;
+		myCountry = "China";
+		myColor = Color.RED;
 	}
 	
 	public boolean typeOfCompany() {
 		if (typeOfCompany == "collusive") {
-			myColor = Color.orange;
 			return true;
 		}
-		myColor = Color.yellow;
 		return false;
 	}
 	
@@ -20,8 +21,9 @@ public class verizon extends cellService {
 //		int x = Location.getX();
 //		int newX = (Location.getX() + 1);
 //		int newY = (Location.getY()); 
-//		myWorld.getCreatureList().add(new verizon(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
+//		myWorld.getCreatureList().add(new CNPC(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
 //	}
 
 
 }
+

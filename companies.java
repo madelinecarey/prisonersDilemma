@@ -9,17 +9,17 @@ public abstract class companies {
 	protected Color myColor;
 	protected int myAge;
 	protected boolean alive;
-	protected int myInfluence;
+	protected String myCountry;
 	protected String typeOfCompany;
 	
 	// lifeform constructors
-	public companies(int myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String typeOfCompany) {
+	public companies(int myBudget, Location myLocation, Color myColor, World myWorld, String myCountry, String typeOfCompany) {
 		super();
 		this.myBudget = myBudget;
 		this.myLocation = myLocation;
 		this.myColor = myColor;
 		this.myWorld = myWorld;
-		this.myInfluence = myInfluence;
+		this.myCountry = myCountry;
 		this.typeOfCompany = typeOfCompany;
 		alive = true;
 	}
@@ -85,12 +85,12 @@ public abstract class companies {
 		this.myAge = age;
 	}
 	
-	public int getMyInfluence() {
-		return myInfluence;
+	public String getMyCountry() {
+		return myCountry;
 	}
 	
-	public void setMyInfluence() {
-		this.myInfluence = myInfluence;
+	public void setMyCountry() {
+		this.myCountry = myCountry;
 	}
 	
 	public String getTypeOfCompany() {
