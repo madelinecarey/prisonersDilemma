@@ -1,4 +1,4 @@
-package prisonersDilemma;
+
 import java.util.ArrayList;
 
 public class World {
@@ -43,7 +43,7 @@ public class World {
 	
 	public void creaturesGetOlder(){
 		for(Company l:companyList){
-			l.age(1);
+			//l.age(1);
 		}
 	}
 	

@@ -1,4 +1,4 @@
-package prisonersDilemma;
+
 
 public class Location {
 	

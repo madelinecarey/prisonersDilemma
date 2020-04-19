@@ -1,4 +1,4 @@
-package prisonersDilemma;
+
 
 import java.awt.Color;
 
@@ -10,8 +10,8 @@ public class WorldController extends GraphicsProgram {
 	
 	private World theWorld;
 	private GCanvas theWorldCanvas;
-	public static final int APPLICATION_WIDTH = 200;
-	public static final int APPLICATION_HEIGHT = 200;
+	public static final int APPLICATION_WIDTH = 1200;
+	public static final int APPLICATION_HEIGHT = 800;
 	
 	public void run(){	
 		setUpWorld();
@@ -23,9 +23,9 @@ public class WorldController extends GraphicsProgram {
 	}
 	
 	public void setUpWorld(){
-		theWorld = new World(20,20);
-		theWorld.getcompanyList().add( new Grass( new Location(3,6), theWorld ));
-		theWorld.getcompanyList().add( new Grass( new Location(4,6), theWorld ));
+		theWorld = new World(65,40);
+		//theWorld.getcompanyList().add( new Grass( new Location(3,6), theWorld ));
+		//theWorld.getcompanyList().add( new Grass( new Location(4,6), theWorld ));
 		theWorldCanvas = this.getGCanvas();
 	}
 	
@@ -46,7 +46,7 @@ public class WorldController extends GraphicsProgram {
 	public void drawBlankWorld(){
 		for(int row = 0 ; row<theWorld.getWidth(); row++)
 			for(int col=0; col<theWorld.getHeight(); col++){
-				GRect r = new GRect(row*10, col*10, 10, 10);
+				GRect r = new GRect(row*15, col*15, 15, 15);
 				r.setFillColor(Color.WHITE);
 				r.setFilled(true);
 				theWorldCanvas.add(r);
@@ -54,7 +54,7 @@ public class WorldController extends GraphicsProgram {
 	}
 	
 	public void drawCreatures(){
-		for(Companty x: theWorld.getcompanyList()){
+		for(Company x: theWorld.getcompanyList()){
 			GRect r = new GRect (x.getMyLocation().getX()*10, x.getMyLocation().getY()*10,10,10);
 			r.setFillColor(x.getMyColor());
 			r.setFilled(true);
