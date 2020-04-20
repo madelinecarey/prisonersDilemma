@@ -3,7 +3,7 @@ import java.awt.Color;
 
 public class Gazprom extends oilCompany {
 	
-	public Gazprom(Location myLocation, World myWorld, int myInfluence, double myPrice, int myQuantity) {
-		super(118000000, myLocation, Color.BLACK, myWorld, myInfluence, "Russia", true, myPrice, myQuantity);
+	public Gazprom(Location myLocation, World myWorld, double myMarketShare, double myPrice, int myQuantity) {
+		super(118000000, myLocation, Color.BLACK, myWorld, 3, "Russia", true, myPrice, myQuantity);
 	}
 }
