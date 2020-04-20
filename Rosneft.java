@@ -3,8 +3,8 @@ import java.awt.Color;
 
 public class Rosneft extends oilCompany {
 	
-	public Rosneft(Location myLocation, World myWorld, int myInfluence, double myPrice, int myQuantity) {
-		super(118000000, myLocation, Color.BLACK, myWorld, myInfluence, "Russia", true, myPrice, myQuantity);
+	public Rosneft(Location myLocation, World myWorld, double myMarketShare, double myPrice, int myQuantity) {
+		super(118000000, myLocation, Color.BLACK, myWorld, 3.1, "Russia", true, myPrice, myQuantity);
 	}
 	
 }
