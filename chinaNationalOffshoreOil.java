@@ -3,8 +3,8 @@ import java.awt.Color;
 
 public class chinaNationalOffshoreOil extends oilCompany {
 	
-	public chinaNationalOffshoreOil(Location myLocation, World myWorld, int myInfluence, double myPrice, int myQuantity) {
-		super(98000000, myLocation, Color.RED, myWorld, myInfluence, "China", true, myPrice, myQuantity);
+	public chinaNationalOffshoreOil(Location myLocation, World myWorld, double myMarketShare, double myPrice, int myQuantity) {
+		super(98000000, myLocation, Color.RED, myWorld, 2.7, "China", true, myPrice, myQuantity);
 	}
 }
 	
