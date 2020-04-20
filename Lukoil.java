@@ -3,8 +3,8 @@ import java.awt.Color;
 
 public class Lukoil extends oilCompany {
 	
-	public Lukoil(Location myLocation, World myWorld, int myInfluence, double myPrice, int myQuantity) {
-		super(128000000, myLocation, Color.BLACK, myWorld, myInfluence, "Russia", true, myPrice, myQuantity);
+	public Lukoil(Location myLocation, World myWorld, double myMarketShare, double myPrice, int myQuantity) {
+		super(128000000, myLocation, Color.BLACK, myWorld, 3.4, "Russia", true, myPrice, myQuantity);
 	}
 }
 
