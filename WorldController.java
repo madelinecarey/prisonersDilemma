@@ -23,7 +23,7 @@ public class WorldController extends GraphicsProgram {
 	}
 	
 	public void setUpWorld(){
-		theWorld = new World(65,40);
+		theWorld = new World(65,53);
 		//theWorld.getcompanyList().add( new Grass( new Location(3,6), theWorld ));
 		//theWorld.getcompanyList().add( new Grass( new Location(4,6), theWorld ));
 		theWorldCanvas = this.getGCanvas();
@@ -59,6 +59,66 @@ public class WorldController extends GraphicsProgram {
 			r.setFillColor(x.getMyColor());
 			r.setFilled(true);
 			theWorldCanvas.add(r);
+		}
+	}
+	
+	public void listCompanies() {
+		for (int numCompanies = 0; numCompanies < theWorld.companyList.size(); numCompanies++) {
+			
+		}
+	}
+	
+	public void makeCompanyLabel(int companyNum) {
+		GRect r = new  GRect(990, (companyNum*15) + (companyNum*10) + 50, 15, 15);
+		r.setFillColor(theWorld.companyList.get(companyNum).getMyColor());
+		r.setFilled(true);
+		theWorldCanvas.add(r);
+		
+		GLabel name = new GLabel(getActualName(companyNum), 1000, (companyNum*15) + (companyNum*10) + 50);
+		theWorldCanvas.add(name);
+	}
+	
+	public String getActualName(int companyNum) {
+		if (companyNum == 0) {
+			return("British Petroleum");
+		} else if (companyNum == 1) {
+			return("Chevron");
+		} else if (companyNum == 2) {
+			return("China National");
+		} else if (companyNum == 1) {
+			return("CNPC");
+		} else if (companyNum == 1) {
+			return("Exxon");
+		} else if (companyNum == 1) {
+			return("Gazprom");
+		} else if (companyNum == 1) {
+			return("JX Holdings");
+		} else if (companyNum == 1) {
+			return("Lukoil");
+		} else if (companyNum == 1) {
+			return("Marathon Petroleum");
+		} else if (companyNum == 1) {
+			return("National Iranian");
+		} else if (companyNum == 1) {
+			return("ONGC");
+		} else if (companyNum == 1) {
+			return("Pemex");
+		} else if (companyNum == 1) {
+			return("Petrobas");
+		} else if (companyNum == 1) {
+			return("Phillips 66");
+		} else if (companyNum == 1) {
+			return("Rosneft");
+		} else if (companyNum == 1) {
+			return("Saudi Aramco");
+		} else if (companyNum == 1) {
+			return("Shell");
+		} else if (companyNum == 1) {
+			return("Sinopec");
+		} else if (companyNum == 1) {
+			return("Total S.A.");
+		} else {
+			return("Valero");
 		}
 	}
 }
