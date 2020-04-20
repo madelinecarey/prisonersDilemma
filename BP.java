@@ -2,9 +2,8 @@ package prisonersDilemma;
 import java.awt.Color;
 
 public class BP extends oilCompany {
-	
-	public BP(Location myLocation, World myWorld, int myInfluence, double myPrice, int myQuantity) {
-		super(303000000, myLocation, Color.BLUE, myWorld, myInfluence, "United Kingdom", false, myPrice, myQuantity);
+	public BP(Location myLocation, World myWorld, double myMarketShare, double myPrice, int myQuantity) {
+		super(303000000, myLocation, Color.BLUE, myWorld, 7.9, "United Kingdom", false, myPrice, myQuantity);
 	}
 	
 //	public void reproduce() {
