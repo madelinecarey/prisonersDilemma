@@ -24,9 +24,9 @@ public class WorldController extends GraphicsProgram {
 	}
 	
 	public void setUpWorld(){
-		theWorld = new World(65,53);
-		//theWorld.getcompanyList().add( new Grass( new Location(3,6), theWorld ));
-		//theWorld.getcompanyList().add( new Grass( new Location(4,6), theWorld ));
+		theWorld = new World(65,53, 0.0);
+		//theWorld.getoilCompanyList().add( new Grass( new Location(3,6), theWorld ));
+		//theWorld.getoilCompanyList().add( new Grass( new Location(4,6), theWorld ));
 		theWorldCanvas = this.getGCanvas();
 	}
 	
@@ -55,7 +55,7 @@ public class WorldController extends GraphicsProgram {
 	}
 	
 	public void drawCreatures(){
-		for(Company x: theWorld.getcompanyList()){
+		for(Company x: theWorld.getoilCompanyList()){
 			GRect r = new GRect (x.getMyLocation().getX()*10, x.getMyLocation().getY()*10,10,10);
 			r.setFillColor(x.getMyColor());
 			r.setFilled(true);
@@ -64,14 +64,14 @@ public class WorldController extends GraphicsProgram {
 	}
 	
 	public void listCompanies() {
-		for (int numCompanies = 0; numCompanies < theWorld.companyList.size(); numCompanies++) {
+		for (int numCompanies = 0; numCompanies < theWorld.oilCompanyList.size(); numCompanies++) {
 			
 		}
 	}
 	
 	public void makeCompanyLabel(int companyNum) {
 		GRect r = new  GRect(990, (companyNum*15) + (companyNum*10) + 50, 15, 15);
-		r.setFillColor(theWorld.companyList.get(companyNum).getMyColor());
+		r.setFillColor(theWorld.oilCompanyList.get(companyNum).getMyColor());
 		r.setFilled(true);
 		theWorldCanvas.add(r);
 		
