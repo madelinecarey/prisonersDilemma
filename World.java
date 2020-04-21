@@ -6,18 +6,21 @@ public class World {
 	
 	private int width;
 	private int height;
-	private double totalGDP;
-	private ArrayList<Company> companyList;
+	private double previousTotalGDP;
+	private double currentTotalGDP;
+	private ArrayList<oilCompany> oilCompanyList;
 	
 	public World(int width, int height) {
 		super();
 		this.width = width;
 		this.height = height;
-		this.companyList = new ArrayList<Company>();
+		this.previousTotalGDP = 0.0;
+		this.currentTotalGDP = 0.0;
+		this.oilCompanyList = new ArrayList<oilCompany>();
 	}
 	
 	public void nextBusinessQuarter(){
-		
+		previousTotalGDP = currentTotalGDP;
 		makeNewCompanies();
 		companiesInteract();
 		purgeTheBankrupt();		
@@ -25,18 +28,18 @@ public class World {
 	
 	public void makeNewCompanies() {
 		
-		int currentSizeOfcompanyList = companyList.size();
-		System.out.println("size of list is "+currentSizeOfcompanyList);
-		for(int i=0; i< currentSizeOfcompanyList; i++) {
-			companyList.get(i).reproduce();
+		int currentSizeOfoilCompanyList = oilCompanyList.size();
+		System.out.println("size of list is "+currentSizeOfoilCompanyList);
+		for(int i=0; i< currentSizeOfoilCompanyList; i++) {
+			oilCompanyList.get(i).reproduce();
 		}
 	}
 	
 	public void purgeTheBankrupt(){
 		int i=0;
-		while(i<companyList.size()){
-			if(companyList.get(i).isBankrupt())
-				companyList.remove(i);
+		while(i<oilCompanyList.size()){
+			if(oilCompanyList.get(i).isBankrupt())
+				oilCompanyList.remove(i);
 			else
 				i++;
 		}	
@@ -44,6 +47,16 @@ public class World {
 	
 	public void companiesInteract(){
 		//let the companies interact with each other
+	}
+	
+	public void calculateTotalGDP() {
+		currentTotalGDP = 0.0;
+		for(int i = 0; i < oilCompanyList.size(); i++) {
+			double companyPrice = oilCompanyList.get(i).getPrice();
+			double companyQuantity = Double.valueOf(oilCompanyList.get(i).getQuantity());
+			double companyRevenue = companyPrice * companyQuantity;
+			currentTotalGDP += companyRevenue;
+		}
 	}
 	
 	public int getWidth() {
@@ -58,16 +71,16 @@ public class World {
 	public void setHeight(int height) {
 		this.height = height;
 	}
-	public ArrayList<Company> getcompanyList() {
-		return companyList;
+	public ArrayList<oilCompany> getoilCompanyList() {
+		return oilCompanyList;
 	}
-	public void setcompanyList(ArrayList<Company> companyList) {
-		this.companyList = companyList;
+	public void setoilCompanyList(ArrayList<oilCompany> oilCompanyList) {
+		this.oilCompanyList = oilCompanyList;
 	}
 
 	@Override
 	public String toString() {
 		return "World [width=" + width + ", height=" + height
-				+ ", companyList=" + companyList + "]";
+				+ ", oilCompanyList=" + oilCompanyList + "]";
 	}
 }
