@@ -1,3 +1,5 @@
+package prisonersDilemma;
+
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -9,12 +11,12 @@ public abstract class Company {
 	protected Location myLocation;
 	protected Color myColor;
 	protected boolean alive;
-	protected int myInfluence;
+	protected double myInfluence;
 	protected String myCountry;
 	protected boolean typeOfCompany; //True if collusive, false if defector
 
 	// lifeform constructors
-	public Company(double myBudget, Location myLocation, Color myColor, World myWorld, int myInfluence, String myCountry, boolean typeOfCompany) {
+	public Company(double myBudget, Location myLocation, Color myColor, World myWorld, double myInfluence, String myCountry, boolean typeOfCompany) {
 		super();
 		this.myBudget = myBudget;
 		this.myLocation = myLocation;

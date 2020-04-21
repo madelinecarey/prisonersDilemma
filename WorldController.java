@@ -1,3 +1,4 @@
+package prisonersDilemma;
 
 
 import java.awt.Color;
@@ -32,7 +33,7 @@ public class WorldController extends GraphicsProgram {
 	public void runWorld(){
 		drawWorld();
 		for(int i=0; i<3; i++){
-			theWorld.letTimePass();
+			theWorld.nextBusinessQuarter();
 			pause(500);
 			drawWorld();
 		}

@@ -1,5 +1,6 @@
 package prisonersDilemma;
 
+
 import java.awt.Color;
 
 public abstract class oilCompany extends Company {
@@ -7,7 +8,7 @@ public abstract class oilCompany extends Company {
 	double myPrice;
 	int myQuantity;
 
-	public oilCompany(double myBudget, Location myLocation, Color myColor, World myWorld, int myInfuence, String myCountry, boolean typeOfCompany, double myPrice, int myQuantity) {
+	public oilCompany(double myBudget, Location myLocation, Color myColor, World myWorld, double myInfuence, String myCountry, boolean typeOfCompany, double myPrice, int myQuantity) {
 		super(myBudget, myLocation, myColor, myWorld, myInfuence, myCountry, typeOfCompany);
 		this.myPrice = myPrice;
 		this.myQuantity = myQuantity;

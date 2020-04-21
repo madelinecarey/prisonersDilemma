@@ -1,3 +1,4 @@
+package prisonersDilemma;
 
 import java.util.ArrayList;
 
@@ -5,6 +6,7 @@ public class World {
 	
 	private int width;
 	private int height;
+	private double totalGDP;
 	private ArrayList<Company> companyList;
 	
 	public World(int width, int height) {
@@ -14,15 +16,14 @@ public class World {
 		this.companyList = new ArrayList<Company>();
 	}
 	
-	public void letTimePass(){
+	public void nextBusinessQuarter(){
 		
-		makeNewCreatures();
-		//eatThings();
-		creaturesGetOlder();
+		makeNewCompanies();
+		companiesInteract();
 		purgeTheBankrupt();		
 	}
 	
-	public void makeNewCreatures() {
+	public void makeNewCompanies() {
 		
 		int currentSizeOfcompanyList = companyList.size();
 		System.out.println("size of list is "+currentSizeOfcompanyList);
@@ -41,10 +42,8 @@ public class World {
 		}	
 	}
 	
-	public void creaturesGetOlder(){
-		for(Company l:companyList){
-			//l.age(1);
-		}
+	public void companiesInteract(){
+		//let the companies interact with each other
 	}
 	
 	public int getWidth() {
