@@ -1,4 +1,4 @@
-package prisonersDilemma;
+//package prisonersDilemma;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ public class World {
 	private int height;
 	private double previousTotalGDP;
 	private double currentTotalGDP;
-	private ArrayList<oilCompany> oilCompanyList;
+	public ArrayList<oilCompany> oilCompanyList;
 	
 	public World(int width, int height) {
 		super();
@@ -24,6 +24,9 @@ public class World {
 		makeNewCompanies();
 		companiesInteract();
 		purgeTheBankrupt();		
+	}
+	
+	public void listCompanies() {
 	}
 	
 	public void makeNewCompanies() {

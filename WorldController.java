@@ -17,6 +17,7 @@ public class WorldController extends GraphicsProgram {
 	public void run(){	
 		setUpWorld();
 		runWorld();
+		makeCompanyLabel(1);
 	}
 	
 	public void init(){
@@ -24,7 +25,7 @@ public class WorldController extends GraphicsProgram {
 	}
 	
 	public void setUpWorld(){
-		theWorld = new World(65,53, 0.0);
+		theWorld = new World(30,26);
 		//theWorld.getoilCompanyList().add( new Grass( new Location(3,6), theWorld ));
 		//theWorld.getoilCompanyList().add( new Grass( new Location(4,6), theWorld ));
 		theWorldCanvas = this.getGCanvas();
@@ -47,7 +48,7 @@ public class WorldController extends GraphicsProgram {
 	public void drawBlankWorld(){
 		for(int row = 0 ; row<theWorld.getWidth(); row++)
 			for(int col=0; col<theWorld.getHeight(); col++){
-				GRect r = new GRect(row*15, col*15, 15, 15);
+				GRect r = new GRect(row*30, col*30, 30, 30);
 				r.setFillColor(Color.WHITE);
 				r.setFilled(true);
 				theWorldCanvas.add(r);
@@ -77,6 +78,9 @@ public class WorldController extends GraphicsProgram {
 		
 		GLabel name = new GLabel(getActualName(companyNum), 1000, (companyNum*15) + (companyNum*10) + 50);
 		theWorldCanvas.add(name);
+		
+		GLabel revenue = new GLabel("" + theWorld.oilCompanyList.get(companyNum).getMyBudget(), 990, (companyNum*15) + (companyNum*10) + 55);
+		theWorldCanvas.add(revenue);
 	}
 	
 	public String getActualName(int companyNum) {
@@ -86,37 +90,37 @@ public class WorldController extends GraphicsProgram {
 			return("Chevron");
 		} else if (companyNum == 2) {
 			return("China National");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 3) {
 			return("CNPC");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 4) {
 			return("Exxon");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 5) {
 			return("Gazprom");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 6) {
 			return("JX Holdings");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 7) {
 			return("Lukoil");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 8) {
 			return("Marathon Petroleum");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 9) {
 			return("National Iranian");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 10) {
 			return("ONGC");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 11) {
 			return("Pemex");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 12) {
 			return("Petrobas");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 13) {
 			return("Phillips 66");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 14) {
 			return("Rosneft");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 15) {
 			return("Saudi Aramco");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 16) {
 			return("Shell");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 17) {
 			return("Sinopec");
-		} else if (companyNum == 1) {
+		} else if (companyNum == 18) {
 			return("Total S.A.");
 		} else {
 			return("Valero");
