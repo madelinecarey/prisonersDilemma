@@ -8,7 +8,7 @@ public abstract class Company {
 
 	protected World myWorld;
 	protected double myBudget;
-	protected Location myLocation;
+	protected ArrayList<Location> myLocations;
 	protected Color myColor;
 	protected boolean alive;
 	protected double myInfluence;
@@ -16,10 +16,10 @@ public abstract class Company {
 	protected boolean typeOfCompany; //True if collusive, false if defector
 
 	// lifeform constructors
-	public Company(double myBudget, Location myLocation, Color myColor, World myWorld, double myInfluence, String myCountry, boolean typeOfCompany) {
+	public Company(double myBudget, ArrayList<Location> myLocation, Color myColor, World myWorld, double myInfluence, String myCountry, boolean typeOfCompany) {
 		super();
 		this.myBudget = myBudget;
-		this.myLocation = myLocation;
+		this.myLocations = myLocation;
 		this.myColor = myColor;
 		this.myWorld = myWorld;
 		this.myInfluence = myInfluence;
@@ -28,10 +28,10 @@ public abstract class Company {
 		alive = true;
 	}
 
-	public Company(Location myLocation, World myWorld) {
+	public Company(ArrayList<Location> myLocation, World myWorld) {
 		super();
 		this.myWorld = myWorld;
-		this.myLocation = myLocation;
+		this.myLocations = myLocation;
 		alive = true;
 	}
 
@@ -64,12 +64,12 @@ public abstract class Company {
 		this.myBudget = myLifeSpan;
 	}
 
-	public Location getMyLocation() {
-		return myLocation;
+	public ArrayList<Location> getMyLocation() {
+		return myLocations;
 	}
 
-	public void setMyLocation(Location myLocation) {
-		this.myLocation = myLocation;
+	public void setMyLocation(ArrayList<Location> myLocation) {
+		this.myLocations = myLocation;
 	}
 
 	public Color getMyColor() {
@@ -106,6 +106,6 @@ public abstract class Company {
 	@Override
 	public String toString() {
 		return "LifeForm [myLifeSpan=" + myBudget + ", myLocation="
-				+ myLocation + ", myColor=" + myColor + "]";
+				+ myLocations + ", myColor=" + myColor + "]";
 	}
 }

@@ -1,4 +1,4 @@
-//package prisonersDilemma;
+package prisonersDilemma;
 
 import java.util.ArrayList;
 

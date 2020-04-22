@@ -17,5 +17,3 @@ public class chinaNationalOffshoreOil extends oilCompany {
 //		myWorld.getCreatureList().add(new chinaNationalOffshoreOil(myBudget, new Location(newX,newY), myColor, myWorld, myInfluence, typeOfCompany));
 //	}
 
-
-}
