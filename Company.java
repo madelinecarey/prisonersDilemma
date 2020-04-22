@@ -11,18 +11,18 @@ public abstract class Company {
 	protected ArrayList<Location> myLocations;
 	protected Color myColor;
 	protected boolean alive;
-	protected double myInfluence;
+	protected double myMarketShare;
 	protected String myCountry;
 	protected boolean typeOfCompany; //True if collusive, false if defector
 
 	// lifeform constructors
-	public Company(double myBudget, ArrayList<Location> myLocation, Color myColor, World myWorld, double myInfluence, String myCountry, boolean typeOfCompany) {
+	public Company(double myBudget, ArrayList<Location> myLocation, Color myColor, World myWorld, double myInfluence, String myCountry, boolean typeOfCompany, double myMarketShare) {
 		super();
 		this.myBudget = myBudget;
 		this.myLocations = myLocation;
 		this.myColor = myColor;
 		this.myWorld = myWorld;
-		this.myInfluence = myInfluence;
+		this.myMarketShare = myMarketShare;
 		this.myCountry = myCountry;
 		this.typeOfCompany = typeOfCompany;
 		alive = true;

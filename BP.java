@@ -1,9 +1,10 @@
 package prisonersDilemma;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class BP extends oilCompany {
-	public BP(Location myLocation, World myWorld, double myPrice, int myQuantity) {
+	public BP(ArrayList<Location> myLocation, World myWorld, double myPrice, int myQuantity) {
 		super(303000000, myLocation, Color.BLUE, myWorld, 7.9, "United Kingdom", false, myPrice, myQuantity);
 	}
 	

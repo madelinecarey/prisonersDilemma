@@ -2,14 +2,15 @@ package prisonersDilemma;
 
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 public abstract class oilCompany extends Company {
 	
 	double myPrice;
 	int myQuantity;
 
-	public oilCompany(double myBudget, Location myLocation, Color myColor, World myWorld, double myInfuence, String myCountry, boolean typeOfCompany, double myPrice, int myQuantity) {
-		super(myBudget, myLocation, myColor, myWorld, myInfuence, myCountry, typeOfCompany);
+	public oilCompany(double myBudget, ArrayList<Location> myLocation, Color myColor, World myWorld, double myMarketShare, String myCountry, boolean typeOfCompany, double myPrice, int myQuantity) {
+		super(myBudget, myLocation, myColor, myWorld, myMarketShare, myCountry, typeOfCompany, myPrice);
 		this.myPrice = myPrice;
 		this.myQuantity = myQuantity;
 	}
