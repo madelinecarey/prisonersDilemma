@@ -42,7 +42,7 @@ public class WorldController extends GraphicsProgram {
 	
 	public void drawWorld(){
 		drawBlankWorld();
-		drawCreatures();
+	//	drawCreatures();
 	}
 	
 	public void drawBlankWorld(){
@@ -55,14 +55,14 @@ public class WorldController extends GraphicsProgram {
 			}
 	}
 	
-	public void drawCreatures(){
-		for(Company x: theWorld.getoilCompanyList()){
-			GRect r = new GRect (x.getMyLocation().getX()*10, x.getMyLocation().getY()*10,10,10);
-			r.setFillColor(x.getMyColor());
-			r.setFilled(true);
-			theWorldCanvas.add(r);
-		}
-	}
+//	public void drawCreatures(){
+//		for(Company x: theWorld.getoilCompanyList()){
+//			GRect r = new GRect (x.getMyLocation().getX()*10, x.getMyLocation().getY()*10,10,10);
+//			r.setFillColor(x.getMyColor());
+//			r.setFilled(true);
+//			theWorldCanvas.add(r);
+//		}
+//	}
 	
 	public void listCompanies() {
 		for (int numCompanies = 0; numCompanies < theWorld.oilCompanyList.size(); numCompanies++) {

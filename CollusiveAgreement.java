@@ -12,4 +12,9 @@ public class CollusiveAgreement {
 	protected String name;
 	protected ArrayList<Company> companiesAgreed;
 	
+	public void add(Company company) {
+		companiesAgreed.add(company);
+	}
+	
+	
 }

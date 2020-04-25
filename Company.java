@@ -6,32 +6,32 @@ import java.util.ArrayList;
 
 public abstract class Company {
 
-	protected World myWorld;
 	protected double myBudget;
 	protected ArrayList<Location> myLocations;
 	protected Color myColor;
 	protected boolean alive;
 	protected double myMarketShare;
 	protected String myCountry;
+	double myPrice;
+	int myQuantity;
 	protected boolean typeOfCompany; //True if collusive, false if defector
 
 	// lifeform constructors
-	public Company(double myBudget, ArrayList<Location> myLocation, Color myColor, World myWorld, double myInfluence, String myCountry, boolean typeOfCompany, double myMarketShare) {
+	public Company(double myBudget, ArrayList<Location> myLocation, Color myColor, double myMarketShare, String myCountry, boolean typeOfCompany, double myPrice, int myQuantity) {
 		super();
 		this.myBudget = myBudget;
 		this.myLocations = myLocation;
 		this.myColor = myColor;
-		this.myWorld = myWorld;
 		this.myMarketShare = myMarketShare;
 		this.myCountry = myCountry;
 		this.typeOfCompany = typeOfCompany;
+		this.myPrice = myPrice;
+		this.myQuantity = myQuantity;
 		alive = true;
 	}
 
-	public Company(ArrayList<Location> myLocation, World myWorld) {
+	public Company() {
 		super();
-		this.myWorld = myWorld;
-		this.myLocations = myLocation;
 		alive = true;
 	}
 
@@ -39,6 +39,7 @@ public abstract class Company {
 	 * 		getOlder
 	 * 		reproduce
 	 */
+
 
 	// we all age the same, time clicks forward and we all age one unit of time
 	public void checkIfBankrupt(){
@@ -102,7 +103,23 @@ public abstract class Company {
 	public void setTypeOfCompany(boolean typeOfCompany) {
 		this.typeOfCompany = typeOfCompany;
 	}
+	
+	public double getMyPrice() {
+		return myPrice;
+	}
 
+	public void setMyPrice(double myPrice) {
+		this.myPrice = myPrice;
+	}
+	
+	public int getMyQuantity() {
+		return myQuantity;
+	}
+
+	public void setMyQuantity(int myQuantity) {
+		this.myQuantity = myQuantity;
+	}
+	
 	@Override
 	public String toString() {
 		return "LifeForm [myLifeSpan=" + myBudget + ", myLocation="
