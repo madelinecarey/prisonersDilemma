@@ -237,6 +237,45 @@ public class World {
 			oilCompanyList.get(i).setMyPrice(newprice);
 		}
 	}
+	
+	public void assignPrices(CollusiveAgreement agreement) {
+		Company company1 = agreement.getCompany(1);
+		Company company2 = agreement.getCompany(2);
+		Company company3 = agreement.getCompany(3);
+		if(company1.typeOfCompany == true && company2.typeOfCompany == true && company3.typeOfCompany == true) {
+			company1.setMyPrice(company1.getMyPrice() * 1.05);
+			company2.setMyPrice(company2.getMyPrice() * 1.05);
+			company3.setMyPrice(company3.getMyPrice() * 1.05);
+		} else if(company1.typeOfCompany == false && company2.typeOfCompany == false && company3.typeOfCompany == false) {
+			company1.setMyPrice(company1.getMyPrice() * 0.95);
+			company2.setMyPrice(company2.getMyPrice() * 0.95);
+			company3.setMyPrice(company3.getMyPrice() * 0.95);
+		} else {
+			if(company1.typeOfCompany == true) {
+				company1.setMyPrice(company1.getMyPrice() * 0.97);
+			} else {
+				company1.setMyPrice(company1.getMyPrice() * 1.07);
+			} if(company2.typeOfCompany == true) {
+				company2.setMyPrice(company2.getMyPrice() * 0.97);
+			} else {
+				company2.setMyPrice(company2.getMyPrice() * 1.07);
+			} if(company3.typeOfCompany == true) {
+				company3.setMyPrice(company3.getMyPrice() * 0.97);
+			} else {
+				company3.setMyPrice(company3.getMyPrice() * 1.07);
+			}
+		}
+	}
+	
+	public void findPrices() {
+		assignPrices(agreement1);
+		assignPrices(agreement2);
+		assignPrices(agreement3);
+		assignPrices(agreement4);
+		assignPrices(agreement5);
+		assignPrices(agreement6);
+		assignPrices(agreement7);
+	}
 
 	@Override
 	public String toString() {

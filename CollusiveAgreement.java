@@ -16,5 +16,8 @@ public class CollusiveAgreement {
 		companiesAgreed.add(company);
 	}
 	
+	public Company getCompany(int a) {
+		return companiesAgreed.get(a);
+	}
 	
 }

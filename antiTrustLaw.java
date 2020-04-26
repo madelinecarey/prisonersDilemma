@@ -4,13 +4,12 @@ import java.util.*;
 
 public class antiTrustLaw {
 	
-	public antiTrustLaw(String country, ArrayList<Company> underJurisdiction) {
+	protected ArrayList<String> underJurisdiction;
+
+	public antiTrustLaw(ArrayList<String> underJurisdiction) {
 		super();
-		this.country = country;
 		this.underJurisdiction = underJurisdiction;
 	}
-	protected String country;
-	protected ArrayList<Company> underJurisdiction;
 	
 	
 }
