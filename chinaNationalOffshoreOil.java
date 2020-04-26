@@ -4,21 +4,16 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 public class chinaNationalOffshoreOil extends Company {
-	
-	public chinaNationalOffshoreOil(ArrayList<Location> myLocation, World myWorld, double myPrice, double myQuantity) {
-		super(98000000, myLocation, Color.RED, 2.7, "China", true, myPrice, myQuantity);
-	}
 
 	public chinaNationalOffshoreOil() {
 		super();
 		myBudget = 98000000;
 		myLocations = new ArrayList<Location>();
 		myColor = Color.RED;
-		myMarketShare = 2.7;
+		myMarketShare = 2.5;
 		myCountry = "China";
 		typeOfCompany = true;
 		myPrice = 72.22;
-		myQuantity = 10000000.0;
 	}
 	
 }

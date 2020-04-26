@@ -17,7 +17,7 @@ public abstract class Company {
 	protected boolean typeOfCompany; //True if collusive, false if defector
 
 	// lifeform constructors
-	public Company(double myBudget, ArrayList<Location> myLocation, Color myColor, double myMarketShare, String myCountry, boolean typeOfCompany, double myPrice, double myQuantity) {
+	public Company(double myBudget, ArrayList<Location> myLocation, Color myColor, double myMarketShare, String myCountry, boolean typeOfCompany, double myPrice, int myQuantity) {
 		super();
 		this.myBudget = myBudget;
 		this.myLocations = myLocation;
@@ -28,6 +28,50 @@ public abstract class Company {
 		this.myPrice = myPrice; // Prices are based on 2019 Oil prices adjusted from the local currency to US dollars
 		this.myQuantity = myQuantity; // Quantity starts off the same (ten million barrels) 10000000
 		alive = true;
+	}
+
+	public ArrayList<Location> getMyLocations() {
+		return myLocations;
+	}
+
+	public void setMyLocations(ArrayList<Location> myLocations) {
+		this.myLocations = myLocations;
+	}
+	
+	public void addLocation(Location location) {
+		myLocations.add(location);
+	}
+
+	public boolean isAlive() {
+		return alive;
+	}
+
+	public void setAlive(boolean alive) {
+		this.alive = alive;
+	}
+
+	public double getMyMarketShare() {
+		return myMarketShare;
+	}
+
+	public void setMyMarketShare(double myMarketShare) {
+		this.myMarketShare = myMarketShare;
+	}
+
+	public String getMyCountry() {
+		return myCountry;
+	}
+
+	public void setMyCountry(String myCountry) {
+		this.myCountry = myCountry;
+	}
+
+	public boolean isTypeOfCompany() {
+		return typeOfCompany;
+	}
+
+	public void setMyBudget(double myBudget) {
+		this.myBudget = myBudget;
 	}
 
 	public Company() {
@@ -112,11 +156,11 @@ public abstract class Company {
 		this.myPrice = myPrice;
 	}
 	
-	public int getMyQuantity() {
+	public double getMyQuantity() {
 		return myQuantity;
 	}
 
-	public void setMyQuantity(int myQuantity) {
+	public void setMyQuantity(double myQuantity) {
 		this.myQuantity = myQuantity;
 	}
 	
