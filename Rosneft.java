@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 public class Rosneft extends Company {
-	public Rosneft(ArrayList<Location> myLocation, World myWorld, double myPrice, int myQuantity) {
+	public Rosneft(ArrayList<Location> myLocation, World myWorld, double myPrice, double myQuantity) {
 		super(118000000, myLocation, Color.BLACK, 3.1, "Russia", true, myPrice, myQuantity);
 	}
 	
@@ -16,8 +16,8 @@ public class Rosneft extends Company {
 		myMarketShare = 3.1;
 		myCountry = "Russia";
 		typeOfCompany = true;
-		myPrice = myPrice;
-		myQuantity = myQuantity;
+		myPrice = 71.7;
+		myQuantity = 10000000.0;
 }
 }
 

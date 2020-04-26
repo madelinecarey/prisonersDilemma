@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 public class pemex extends Company {
-	public pemex(ArrayList<Location> myLocation, World myWorld, double myPrice, int myQuantity) {
+	public pemex(ArrayList<Location> myLocation, World myWorld, double myPrice, double myQuantity) {
 		super(85000000, myLocation, Color.DARK_GRAY, 2, "Mexico", true, myPrice, myQuantity);
 	}
 	
@@ -16,8 +16,8 @@ public class pemex extends Company {
 		myMarketShare = 2;
 		myCountry = "Mexico";
 		typeOfCompany = true;
-		myPrice = myPrice;
-		myQuantity = myQuantity;
+		myPrice = 61.61;
+		myQuantity = 10000000.0;
 
 }
 }

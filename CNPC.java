@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class CNPC extends Company {
 		
-	public CNPC(ArrayList<Location> myLocation, World myWorld, double myPrice, int myQuantity) {
+	public CNPC(ArrayList<Location> myLocation, World myWorld, double myPrice, double myQuantity) {
 		super(392000000, myLocation, Color.RED, 10.4, "China", true, myPrice, myQuantity);
 	}
 
@@ -17,8 +17,8 @@ public class CNPC extends Company {
 		myMarketShare = 10.4;
 		myCountry = "China";
 		typeOfCompany = true;
-		myPrice = myPrice;
-		myQuantity = myQuantity;
+		myPrice = 72.22;
+		myQuantity = 10000000.0;
 	}
 }
 

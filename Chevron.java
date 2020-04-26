@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Chevron extends Company {
 	
-	public Chevron(ArrayList<Location> myLocation, World myWorld, double myPrice, int myQuantity) {
+	public Chevron(ArrayList<Location> myLocation, World myWorld, double myPrice, double myQuantity) {
 		super(159000000, myLocation, Color.CYAN, 4.1, "United States", false, myPrice, myQuantity);
 	}
 
@@ -17,8 +17,8 @@ public class Chevron extends Company {
 		myMarketShare = 4.1;
 		myCountry = "United States";
 		typeOfCompany = false;
-		myPrice = myPrice;
-		myQuantity = myQuantity;
+		myPrice = 55.99;
+		myQuantity = 10000000.0;
 	}
 
 }

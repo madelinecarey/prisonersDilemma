@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class chinaNationalOffshoreOil extends Company {
 	
-	public chinaNationalOffshoreOil(ArrayList<Location> myLocation, World myWorld, double myPrice, int myQuantity) {
+	public chinaNationalOffshoreOil(ArrayList<Location> myLocation, World myWorld, double myPrice, double myQuantity) {
 		super(98000000, myLocation, Color.RED, 2.7, "China", true, myPrice, myQuantity);
 	}
 
@@ -17,8 +17,8 @@ public class chinaNationalOffshoreOil extends Company {
 		myMarketShare = 2.7;
 		myCountry = "China";
 		typeOfCompany = true;
-		myPrice = myPrice;
-		myQuantity = myQuantity;
+		myPrice = 72.22;
+		myQuantity = 10000000.0;
 	}
 	
 }

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 public class SaudiAramco extends Company {
-	public SaudiAramco(ArrayList<Location> myLocation, World myWorld, double myPrice, int myQuantity) {
+	public SaudiAramco(ArrayList<Location> myLocation, World myWorld, double myPrice, double myQuantity) {
 		super(355000000, myLocation, Color.GREEN, 9.4, "Saudi Arabia", true, myPrice, myQuantity);
 	}
 	
@@ -16,8 +16,8 @@ public class SaudiAramco extends Company {
 		myMarketShare = 9.4;
 		myCountry = "Saudi Arabia";
 		typeOfCompany = true;
-		myPrice = myPrice;
-		myQuantity = myQuantity;
+		myPrice = 57.22;
+		myQuantity = 10000000.0;
 }
 }
 

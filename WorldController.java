@@ -29,6 +29,7 @@ public class WorldController extends GraphicsProgram {
 		//theWorld.getoilCompanyList().add( new Grass( new Location(3,6), theWorld ));
 		//theWorld.getoilCompanyList().add( new Grass( new Location(4,6), theWorld ));
 		theWorldCanvas = this.getGCanvas();
+		theWorld.setPreviousTotalGDP(0.0);
 	}
 	
 	public void runWorld(){

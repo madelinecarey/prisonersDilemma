@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import acm.util.RandomGenerator;
 
 public class World {
-	
+
 	private int width;
 	private int height;
 	private double previousTotalGDP;
 	private double currentTotalGDP;
+	public int businessQuarter;
 	public ArrayList<Company> oilCompanyList;
 	public CollusiveAgreement agreement1;
 	public CollusiveAgreement agreement2;
@@ -19,23 +20,29 @@ public class World {
 	public CollusiveAgreement agreement6;
 	public CollusiveAgreement agreement7;
 	private RandomGenerator rgen = new RandomGenerator();
-	
+
 	public World(int width, int height) {
 		super();
 		this.width = width;
 		this.height = height;
 		this.previousTotalGDP = 0.0;
 		this.currentTotalGDP = 0.0;
+		this.businessQuarter = 0;
 		this.oilCompanyList = new ArrayList<Company>();
 	}
-	
+
 	public void nextBusinessQuarter(){
+		businessQuarter++;
 		previousTotalGDP = currentTotalGDP;
+		if (businessQuarter % 4 == 0) { // Makes sure prices are adjusted every four years
+			adjustPrices();
+		}
 		makeNewCompanies();
-		companiesInteract();
-		purgeTheBankrupt();		
+		makeAgreements();
+		purgeTheBankrupt();
+		calculateTotalGDP();
 	}
-	
+
 	public void listCompanies() {
 		oilCompanyList = new ArrayList<Company>();
 		BP BP = new BP();
@@ -79,16 +86,15 @@ public class World {
 		Valero Valero = new Valero();
 		oilCompanyList.add(Valero);
 	}
-	
+
 	public void makeNewCompanies() {
-		
 		int currentSizeOfoilCompanyList = oilCompanyList.size();
 		System.out.println("size of list is "+currentSizeOfoilCompanyList);
 		for(int i=0; i< currentSizeOfoilCompanyList; i++) {
 			oilCompanyList.get(i).reproduce();
 		}
 	}
-	
+
 	public void purgeTheBankrupt(){
 		int i=0;
 		while(i<oilCompanyList.size()){
@@ -98,11 +104,7 @@ public class World {
 				i++;
 		}	
 	}
-	
-	public void companiesInteract(){
-		//let the companies interact with each other
-	}
-	
+
 	public void calculateTotalGDP() {
 		currentTotalGDP = 0.0;
 		for(int i = 0; i < oilCompanyList.size(); i++) {
@@ -112,7 +114,7 @@ public class World {
 			currentTotalGDP += companyRevenue;
 		}
 	}
-	
+
 	public int getWidth() {
 		return width;
 	}
@@ -131,13 +133,11 @@ public class World {
 	public void setoilCompanyList(ArrayList<Company> oilCompanyList) {
 		this.oilCompanyList = oilCompanyList;
 	}
-
-	@Override
-	public String toString() {
-		return "World [width=" + width + ", height=" + height
-				+ ", oilCompanyList=" + oilCompanyList + "]";
-	}
 	
+	public void setPreviousTotalGDP(double x) {
+		previousTotalGDP = x;
+	}
+
 	public void makeAgreements() {
 		ArrayList<Integer> numbersUsed = new ArrayList<Integer>();
 		for(int i=0; i<20; i++) {
@@ -146,16 +146,16 @@ public class World {
 				for(int j=0; j<numbersUsed.size(); j++) {
 					if(numbersUsed.get(j) == x) {
 						break;
-				}
+					}
 					x = rgen.nextInt(0, 20);
+				}
 			}
-		}
 			numbersUsed.add(x);
 		}
 		addAgreements(numbersUsed);
 	}
-		
-		public void addAgreements(ArrayList<Integer> numbersUsed) {
+
+	public void addAgreements(ArrayList<Integer> numbersUsed) {
 		for(int i=0; i<3; i++) {
 			agreement1.add(oilCompanyList.get(numbersUsed.get(i)));
 		} for(int i=3; i<6; i++) {
@@ -171,5 +171,44 @@ public class World {
 		} for(int i=18; i<21; i++) {
 			agreement7.add(oilCompanyList.get(numbersUsed.get(i)));
 		}
+	}
+	 //exchange rates and inflation rates based on 2019
+	public void adjustPrices() {
+		for (int i = 0; i < oilCompanyList.size(); i++) {
+			String country = oilCompanyList.get(i).getCountry();
+			double oldprice = oilCompanyList.get(i).getMyPrice();
+			double newprice = 1;
+			if(country.equals("United Kingdom") == true) {
+				newprice = 1 + (1.2911 * 0.0181); // one plus the exchange rate times the inflation rate
+			} else if (country.equals("United States") == true) {
+				newprice = 1 + 0.0228;
+			} else if (country.equals("China") == true) {
+				newprice = 1 + (0.14361 * 0.045);
+			} else if (country.equals("Russia") == true) {
+				newprice = 1 + (0.016117 * 0.0468);
+			} else if (country.equals("Japan") == true) {
+				newprice = 1 + (0.0092009 * 0.0079);
+			} else if (country.equals("Iran") == true) {
+				newprice = 1 + (0.00002375 * 0.3568);
+			} else if (country.equals("India") == true) {
+				newprice = 1 + (0.014025 * 0.0344);
+			} else if (country.equals("Mexico") == true) {
+				newprice = 1 + (0.05282 * 0.0377);
+			} else if (country.equals("Brazil") == true) {
+				newprice = 1 + (0.24876 * 0.0378);
+			} else if (country.equals("France") == true) {
+				newprice = 1 + (1.1225 * 0.0121);
+			} else if (country.equals("Saudi Arabia") == true) {
+				newprice = 1 + (0.2665 * (-0.0105));
+			}
+			newprice = oldprice * newprice;
+			oilCompanyList.get(i).setMyPrice(newprice);
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "World [width=" + width + ", height=" + height
+				+ ", oilCompanyList=" + oilCompanyList + "]";
 	}
 }
