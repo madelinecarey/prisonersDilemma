@@ -109,7 +109,7 @@ public class World {
 		currentTotalGDP = 0.0;
 		for(int i = 0; i < oilCompanyList.size(); i++) {
 			double companyPrice = oilCompanyList.get(i).getMyPrice();
-			double companyQuantity = Double.valueOf(oilCompanyList.get(i).getMyQuantity());
+			double companyQuantity = oilCompanyList.get(i).getMyQuantity();
 			double companyRevenue = companyPrice * companyQuantity;
 			currentTotalGDP += companyRevenue;
 		}
