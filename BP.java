@@ -4,12 +4,13 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 public class BP extends Company {
-
+	Color Blue = new Color (54,120,156)
+	
 	public BP() {
 		super();
 		myBudget = 303000000;
 		myLocations = new ArrayList<Location>();
-		myColor = Color.BLUE;
+		myColor = Color.Blue;
 		myMarketShare = 7.8;
 		myCountry = "United Kingdom";
 		typeOfCompany = false;

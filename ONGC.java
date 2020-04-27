@@ -4,12 +4,13 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 public class ONGC extends Company {
+	Color Orange = new Color (240,144,19)
 
 	public ONGC() {
 		super();
 		myBudget = 127000000;
 		myLocations = new ArrayList<Location>();
-		myColor = Color.ORANGE;
+		myColor = Color.Orange;
 		myMarketShare = 3.3;
 		myCountry = "India";
 		typeOfCompany = false;

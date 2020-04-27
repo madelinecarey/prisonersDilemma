@@ -4,12 +4,13 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 public class marathonPetroleum extends Company {
+	Color Cyan = new Color (106,173,164)
 
 	public marathonPetroleum() {
 		super();
 		myBudget = 97000000;
 		myLocations = new ArrayList<Location>();
-		myColor = Color.CYAN;
+		myColor = Color.Cyan;
 		myMarketShare = 2.5;
 		myCountry = "United States";
 		typeOfCompany = false;
