@@ -14,6 +14,7 @@ public class pemex extends Company {
 		myCountry = "Mexico";
 		typeOfCompany = true;
 		myPrice = 61.61;
+		myInputCost = 56.61;
 	}
 }
 

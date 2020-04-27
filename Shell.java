@@ -14,7 +14,7 @@ public class Shell extends Company {
 		myCountry = "United Kingdom";
 		typeOfCompany = true;
 		myPrice = 61.54;
-
+		myInputCost = 56.54;
 }
 }
 

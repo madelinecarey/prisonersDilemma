@@ -14,6 +14,7 @@ public class TotalSA extends Company {
 		myCountry = "France";
 		typeOfCompany = true;
 		myPrice = 64.0;
+		myInputCost = 59.0;
 }
 }
 

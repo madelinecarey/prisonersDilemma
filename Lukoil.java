@@ -14,6 +14,7 @@ public class Lukoil extends Company {
 		myCountry = "Russia";
 		typeOfCompany = true;
 		myPrice = 71.7;
+		myInputCost = 66.7;
 	}
 }
 

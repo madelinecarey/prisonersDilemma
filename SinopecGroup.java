@@ -14,5 +14,6 @@ public class SinopecGroup extends Company {
 		myCountry = "China";
 		typeOfCompany = false;
 		myPrice = 72.22;
+		myInputCost = 57.22;
 }
 }

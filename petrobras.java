@@ -14,5 +14,6 @@ public class petrobras extends Company {
 		myCountry = "Brazil";
 		typeOfCompany = true;
 		myPrice = 59.08;
+		myInputCost = 54.08;
 	}
 }

@@ -14,6 +14,7 @@ public class ONGC extends Company {
 		myCountry = "India";
 		typeOfCompany = false;
 		myPrice = 69.88;
+		myInputCost = 64.88;
 	}
 }
 

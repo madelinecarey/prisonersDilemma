@@ -14,6 +14,7 @@ public class nationalIranianOilCompany extends Company {
 		myCountry = "Iran";
 		typeOfCompany = true;
 		myPrice = 75.01;
+		myInputCost = 70.01;
 	}
 	
 }

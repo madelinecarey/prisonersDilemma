@@ -12,12 +12,13 @@ public abstract class Company {
 	protected boolean alive;
 	protected double myMarketShare;
 	protected String myCountry;
-	double myPrice;
-	double myQuantity;
+	protected double myPrice;
+	protected double myInputCost;
+	protected double myQuantity;
 	protected boolean typeOfCompany; //True if collusive, false if defector
 
 	// lifeform constructors
-	public Company(double myBudget, ArrayList<Location> myLocation, Color myColor, double myMarketShare, String myCountry, boolean typeOfCompany, double myPrice, int myQuantity) {
+	public Company(double myBudget, ArrayList<Location> myLocation, Color myColor, double myMarketShare, String myCountry, boolean typeOfCompany, double myPrice, double myInputCost, int myQuantity) {
 		super();
 		this.myBudget = myBudget;
 		this.myLocations = myLocation;
@@ -26,8 +27,17 @@ public abstract class Company {
 		this.myCountry = myCountry;
 		this.typeOfCompany = typeOfCompany;
 		this.myPrice = myPrice; // Prices are based on 2019 Oil prices adjusted from the local currency to US dollars
-		this.myQuantity = myQuantity; // Quantity starts off the same (ten million barrels) 10000000
+		this.myInputCost = myInputCost;
+		this.myQuantity = myQuantity; // Based on initial market shares
 		alive = true;
+	}
+
+	public double getMyInputCost() {
+		return myInputCost;
+	}
+
+	public void setMyInputCost(double myInputCost) {
+		this.myInputCost = myInputCost;
 	}
 
 	public ArrayList<Location> getMyLocations() {

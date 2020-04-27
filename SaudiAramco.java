@@ -14,6 +14,7 @@ public class SaudiAramco extends Company {
 		myCountry = "Saudi Arabia";
 		typeOfCompany = true;
 		myPrice = 57.22;
+		myInputCost = 52.22;
 }
 }
 

@@ -14,6 +14,7 @@ public class chinaNationalOffshoreOil extends Company {
 		myCountry = "China";
 		typeOfCompany = true;
 		myPrice = 72.22;
+		myInputCost = 67.22;
 	}
 	
 }

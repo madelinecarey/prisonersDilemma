@@ -14,6 +14,7 @@ public class BP extends Company {
 		myCountry = "United Kingdom";
 		typeOfCompany = false;
 		myPrice = 61.54;
+		myInputCost = 56.54;
 	}
 
 	

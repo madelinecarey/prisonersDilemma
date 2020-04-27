@@ -14,6 +14,7 @@ public class Phillips66 extends Company {
 		myCountry = "United States";
 		typeOfCompany = false;
 		myPrice = 55.99;
+		myInputCost = 50.99;
 	}
 
 }

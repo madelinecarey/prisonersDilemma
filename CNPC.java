@@ -13,6 +13,7 @@ public class CNPC extends Company {
 		myCountry = "China";
 		typeOfCompany = true;
 		myPrice = 72.22;
+		myInputCost = 57.22;
 	}
 }
 

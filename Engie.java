@@ -14,6 +14,6 @@ public class Engie extends Company {
 		myCountry = "France";
 		typeOfCompany = true;
 		myPrice = 64.0;
-		myQuantity = 10000000.0;
+		myInputCost = 59;
 	}
 }

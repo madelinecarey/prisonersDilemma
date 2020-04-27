@@ -37,9 +37,7 @@ public class World {
 		if (businessQuarter % 4 == 0) { // Makes sure prices are adjusted every four years
 			adjustPrices();
 		}
-		makeNewCompanies();
 		makeAgreements();
-		purgeTheBankrupt();
 		calculateTotalGDP();
 	}
 
@@ -119,32 +117,26 @@ public class World {
 		company.setMyQuantity(3240/company.getMyMarketShare());
 	}
 
-	public void makeNewCompanies() {
-		int currentSizeOfoilCompanyList = oilCompanyList.size();
-		System.out.println("size of list is "+currentSizeOfoilCompanyList);
-		for(int i=0; i< currentSizeOfoilCompanyList; i++) {
-			oilCompanyList.get(i).reproduce();
+	
+	public void newRevenues() {
+		for (Company company :  oilCompanyList) {
+			company.setMyBudget(company.getMyQuantity() * (company.getMyPrice()-company.getMyInputCost()));
+		}
+	}
+	
+	public void newMarketShares() {
+		double totalGDP = calculateTotalGDP();
+		for (Company company :  oilCompanyList) {
+			company.setMyMarketShare(company.getMyBudget()/totalGDP);
 		}
 	}
 
-	public void purgeTheBankrupt(){
-		int i=0;
-		while(i<oilCompanyList.size()){
-			if(oilCompanyList.get(i).isBankrupt())
-				oilCompanyList.remove(i);
-			else
-				i++;
-		}	
-	}
-
-	public void calculateTotalGDP() {
-		currentTotalGDP = 0.0;
-		for(int i = 0; i < oilCompanyList.size(); i++) {
-			double companyPrice = oilCompanyList.get(i).getMyPrice();
-			double companyQuantity = oilCompanyList.get(i).getMyQuantity();
-			double companyRevenue = companyPrice * companyQuantity;
-			currentTotalGDP += companyRevenue;
+	public double calculateTotalGDP() {
+		double totalGDP = 0;
+		for (Company company :  oilCompanyList) {
+			totalGDP += company.getMyBudget();
 		}
+		return totalGDP;
 	}
 
 	public int getWidth() {

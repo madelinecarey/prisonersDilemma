@@ -14,6 +14,7 @@ public class JXHoldings extends Company {
 		myCountry = "Japan";
 		typeOfCompany = false;
 		myPrice = 61.11;
+		myInputCost = 56.11;
 	}
 	
 }
