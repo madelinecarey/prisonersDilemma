@@ -30,14 +30,26 @@ public class World {
 		this.businessQuarter = 0;
 		this.oilCompanyList = new ArrayList<Company>();
 	}
+	
+	public void init() {
+		listCompanies();
+		findPrices();
+		newBudgets();
+		newMarketShares();
+		distributeMarket();
+	}
 
 	public void nextBusinessQuarter(){
 		businessQuarter++;
 		previousTotalGDP = currentTotalGDP;
 		if (businessQuarter % 4 == 0) { // Makes sure prices are adjusted every four years
+			makeAgreements();
 			adjustPrices();
 		}
-		makeAgreements();
+		findPrices();
+		newBudgets();
+		newMarketShares();
+		distributeMarket();
 		calculateTotalGDP();
 	}
 
@@ -117,26 +129,35 @@ public class World {
 		company.setMyQuantity(3240/company.getMyMarketShare());
 	}
 
-	
-	public void newRevenues() {
+	public void newBudgets() {
 		for (Company company :  oilCompanyList) {
-			company.setMyBudget(company.getMyQuantity() * (company.getMyPrice()-company.getMyInputCost()));
+			company.setMyBudget(company.getMyBudget() + (company.getMyQuantity() * (company.getMyPrice()-company.getMyInputCost())));
 		}
 	}
 	
 	public void newMarketShares() {
-		double totalGDP = calculateTotalGDP();
+		double marketSize = calculateMarketSize();
 		for (Company company :  oilCompanyList) {
-			company.setMyMarketShare(company.getMyBudget()/totalGDP);
+			company.setMyMarketShare(company.getMyBudget()/marketSize);
 		}
 	}
 
-	public double calculateTotalGDP() {
-		double totalGDP = 0;
+	public void calculateMarketSize() {
+		double marketSize = 0;
 		for (Company company :  oilCompanyList) {
-			totalGDP += company.getMyBudget();
+			marketSize += company.getMyBudget();
 		}
-		return totalGDP;
+		return marketSize;
+	}
+	
+	public double calculateTotalGDP() {
+		currentTotalGDP = 0.0;
+		for(int i = 0; i < oilCompanyList.size(); i++) {
+			double companyPrice = oilCompanyList.get(i).getPrice();
+			double companyQuantity = Double.valueOf(oilCompanyList.get(i).getQuantity());
+			double companyRevenue = companyPrice * companyQuantity;
+			currentTotalGDP += companyRevenue;
+		}
 	}
 
 	public int getWidth() {

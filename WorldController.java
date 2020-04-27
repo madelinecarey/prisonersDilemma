@@ -25,24 +25,22 @@ public class WorldController extends GraphicsProgram {
 
 	public void setUpWorld() {
 		theWorld = new World(60, 54);
-		// theWorld.getoilCompanyList().add( new Grass( new Location(3,6), theWorld ));
-		// theWorld.getoilCompanyList().add( new Grass( new Location(4,6), theWorld ));
 		theWorldCanvas = this.getGCanvas();
 		theWorld.setPreviousTotalGDP(0.0);
 	}
 
 	public void runWorld() {
 		drawWorld();
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			theWorld.nextBusinessQuarter();
-			pause(500);
+			pause(1000);
 			drawWorld();
 		}
 	}
 
 	public void drawWorld() {
 		drawBlankWorld();
-		// drawCreatures();
+		colorSquares();
 	}
 
 	public void drawBlankWorld() {
