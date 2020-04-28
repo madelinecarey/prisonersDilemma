@@ -15,7 +15,7 @@ public class WorldController extends GraphicsProgram {
 	GLabel currentTotalGDP;
 	GLabel businessQuarter;
 	public static final int APPLICATION_WIDTH = 1200;
-	public static final int APPLICATION_HEIGHT = 800;
+	public static final int APPLICATION_HEIGHT = 820;
 
 	public void run() {
 		setUpWorld();
@@ -31,8 +31,9 @@ public class WorldController extends GraphicsProgram {
 		theWorld = new World(60, 54);
 		theWorldCanvas = this.getGCanvas();
 		theWorld.setPreviousTotalGDP(0.0);
+		
+		drawBlankWorld();
 		addLabels();
-		drawWorld();
 		
 		theWorld.addCompanies();
 		theWorld.makeAgreements();
@@ -40,10 +41,12 @@ public class WorldController extends GraphicsProgram {
 		theWorld.newBudgets();
 		theWorld.newMarketShares();
 		theWorld.distributeMarket();
+		
+		drawWorld();
 	}
 
 	public void runWorld() {
-		for (int i = 0; i <= 20; i++) { // runs for 5 years
+		for (int i = 0; i < 20; i++) { // runs for 5 years
 			theWorld.nextBusinessQuarter();
 			pause(1000);
 			drawWorld();

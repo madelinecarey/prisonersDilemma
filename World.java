@@ -192,24 +192,19 @@ public class World {
 
 	public void makeAgreements() {
 		ArrayList<Integer> numbersUsed = new ArrayList<Integer>();
-		for(int i=0; i<20; i++) {
+		while (numbersUsed.size() < 21) {
 			int x = rgen.nextInt(0, 20);
-			while(numbersUsed.size() < 21) { // THIS LOOPS FOREVER
-				for(int j=0; j<numbersUsed.size(); j++) {
-					if(numbersUsed.get(j) == x) {
-						break;
-					}
-					x = rgen.nextInt(0, 20);
-				}
+			if(numbersUsed.indexOf(x) == -1) { // if the number doesn't exist in the list
+				numbersUsed.add(x);
 			}
-			numbersUsed.add(x);
 		}
 		addAgreements(numbersUsed);
 	}
+		
 
 	public void addAgreements(ArrayList<Integer> numbersUsed) {
 		for(int i=0; i<3; i++) {
-			agreement1.add(oilCompanyList.get(numbersUsed.get(i)));
+			agreement1.add(oilCompanyList.get(numbersUsed.get(i))); // There's a bug here but i'm not sure why
 		} for(int i=3; i<6; i++) {
 			agreement2.add(oilCompanyList.get(numbersUsed.get(i)));
 		} for(int i=6; i<9; i++) {
