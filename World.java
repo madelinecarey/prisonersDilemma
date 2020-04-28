@@ -50,7 +50,7 @@ public class World {
 		newBudgets();
 		newMarketShares();
 		distributeMarket();
-		calculateTotalGDP();
+		currentTotalGDP = calculateTotalGDP();
 	}
 
 	public void listCompanies() {
@@ -142,7 +142,7 @@ public class World {
 		}
 	}
 
-	public void calculateMarketSize() {
+	public double calculateMarketSize() {
 		double marketSize = 0;
 		for (Company company :  oilCompanyList) {
 			marketSize += company.getMyBudget();
@@ -153,11 +153,12 @@ public class World {
 	public double calculateTotalGDP() {
 		currentTotalGDP = 0.0;
 		for(int i = 0; i < oilCompanyList.size(); i++) {
-			double companyPrice = oilCompanyList.get(i).getPrice();
-			double companyQuantity = Double.valueOf(oilCompanyList.get(i).getQuantity());
+			double companyPrice = oilCompanyList.get(i).getMyPrice();
+			double companyQuantity = Double.valueOf(oilCompanyList.get(i).getMyQuantity());
 			double companyRevenue = companyPrice * companyQuantity;
 			currentTotalGDP += companyRevenue;
 		}
+		return currentTotalGDP;
 	}
 
 	public int getWidth() {
@@ -181,6 +182,20 @@ public class World {
 	
 	public void setPreviousTotalGDP(double x) {
 		previousTotalGDP = x;
+	}
+	
+	public int getPreviousTotalGDP(){
+		int GDP = (int)previousTotalGDP;
+		return GDP;
+	}
+	
+	public int getCurrentTotalGDP() {
+		int GDP = (int)currentTotalGDP;
+		return GDP;
+	}
+	
+	public int getBusinessQuarter() {
+		return businessQuarter;
 	}
 
 	public void makeAgreements() {

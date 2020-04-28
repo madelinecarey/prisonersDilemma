@@ -4,13 +4,13 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 public class Gazprom extends Company {
-	Color Black = new Color (0,0,0)
+	Color Black = new Color (0,0,0);
 	
 	public Gazprom() {
 		super();
 		myBudget = 118000000;
 		myLocations = new ArrayList<Location>();
-		myColor = Color.Black;
+		myColor = Black;
 		myMarketShare = 3;
 		myCountry = "Russia";
 		typeOfCompany = true;

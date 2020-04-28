@@ -1,6 +1,7 @@
 package prisonersDilemma;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import acm.graphics.*;
 import acm.program.*;
@@ -10,6 +11,9 @@ public class WorldController extends GraphicsProgram {
 
 	private World theWorld;
 	private GCanvas theWorldCanvas;
+	GLabel previousTotalGDP;
+	GLabel currentTotalGDP;
+	GLabel businessQuarter;
 	public static final int APPLICATION_WIDTH = 1200;
 	public static final int APPLICATION_HEIGHT = 800;
 
@@ -27,10 +31,11 @@ public class WorldController extends GraphicsProgram {
 		theWorld = new World(60, 54);
 		theWorldCanvas = this.getGCanvas();
 		theWorld.setPreviousTotalGDP(0.0);
+		addLabels();
+		drawWorld();
 	}
 
 	public void runWorld() {
-		drawWorld();
 		for (int i = 0; i < 5; i++) {
 			theWorld.nextBusinessQuarter();
 			pause(1000);
@@ -40,6 +45,8 @@ public class WorldController extends GraphicsProgram {
 
 	public void drawWorld() {
 		drawBlankWorld();
+		removeLabels();
+		addLabels();
 		colorSquares();
 	}
 
@@ -51,6 +58,32 @@ public class WorldController extends GraphicsProgram {
 				r.setFilled(true);
 				theWorldCanvas.add(r);
 			}
+	}
+	
+	public void addLabels() {
+		previousTotalGDP = new GLabel("Previous Total GDP: $" + theWorld.getPreviousTotalGDP());
+		currentTotalGDP = new GLabel("Current Total GDP: $" + theWorld.getCurrentTotalGDP());
+		businessQuarter = new GLabel("Current Business Quarter: " + theWorld.getBusinessQuarter());
+		
+		businessQuarter.setLocation(APPLICATION_WIDTH - 270, 50);
+		previousTotalGDP.setLocation(APPLICATION_WIDTH - 270, 100);
+		currentTotalGDP.setLocation(APPLICATION_WIDTH - 270, 150);
+		
+		Font a = new Font ("TimesRoman", Font.PLAIN, 15);
+		Font b = new Font ("TimesRoman", Font.BOLD, 15);
+		previousTotalGDP.setFont(a);
+		currentTotalGDP.setFont(b);
+		businessQuarter.setFont(a);
+		
+		theWorldCanvas.add(previousTotalGDP);
+		theWorldCanvas.add(currentTotalGDP);
+		theWorldCanvas.add(businessQuarter);
+	}
+	
+	public void removeLabels() {
+		theWorldCanvas.remove(previousTotalGDP);
+		theWorldCanvas.remove(currentTotalGDP);
+		theWorldCanvas.remove(businessQuarter);
 	}
 
 	public void colorSquares() {
