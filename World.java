@@ -30,22 +30,14 @@ public class World {
 		this.businessQuarter = 0;
 		this.oilCompanyList = new ArrayList<Company>();
 	}
-	
-	public void init() {
-		listCompanies();
-		findPrices();
-		newBudgets();
-		newMarketShares();
-		distributeMarket();
-	}
 
 	public void nextBusinessQuarter(){
 		businessQuarter++;
 		previousTotalGDP = currentTotalGDP;
 		if (businessQuarter % 4 == 0) { // Makes sure prices are adjusted every four years
-			makeAgreements();
 			adjustPrices();
 		}
+		makeAgreements();
 		findPrices();
 		newBudgets();
 		newMarketShares();
@@ -53,7 +45,7 @@ public class World {
 		currentTotalGDP = calculateTotalGDP();
 	}
 
-	public void listCompanies() {
+	public void addCompanies() {
 		oilCompanyList = new ArrayList<Company>();
 		BP BP = new BP();
 		oilCompanyList.add(BP);
@@ -202,7 +194,7 @@ public class World {
 		ArrayList<Integer> numbersUsed = new ArrayList<Integer>();
 		for(int i=0; i<20; i++) {
 			int x = rgen.nextInt(0, 20);
-			while(numbersUsed.size() < 21) {
+			while(numbersUsed.size() < 21) { // THIS LOOPS FOREVER
 				for(int j=0; j<numbersUsed.size(); j++) {
 					if(numbersUsed.get(j) == x) {
 						break;

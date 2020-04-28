@@ -33,10 +33,17 @@ public class WorldController extends GraphicsProgram {
 		theWorld.setPreviousTotalGDP(0.0);
 		addLabels();
 		drawWorld();
+		
+		theWorld.addCompanies();
+		theWorld.makeAgreements();
+		theWorld.findPrices();
+		theWorld.newBudgets();
+		theWorld.newMarketShares();
+		theWorld.distributeMarket();
 	}
 
 	public void runWorld() {
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i <= 20; i++) { // runs for 5 years
 			theWorld.nextBusinessQuarter();
 			pause(1000);
 			drawWorld();
