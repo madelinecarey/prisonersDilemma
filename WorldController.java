@@ -15,6 +15,7 @@ public class WorldController extends GraphicsProgram {
 	GLabel previousTotalGDP;
 	GLabel currentTotalGDP;
 	GLabel businessQuarter;
+	GLabel changeInGDP;
 	GLabel companies;
 	GLabel BP;
 	GLabel Chevron;
@@ -51,20 +52,20 @@ public class WorldController extends GraphicsProgram {
 	}
 
 	public void setUpWorld() {
-		theWorld = new World(60, 54);
+		theWorld = new World(63, 54);
 		theWorldCanvas = this.getGCanvas();
-		theWorld.setPreviousTotalGDP(0.0);
-		
 		theWorld.addCompanies();
 		theWorld.newMarketShares();
 		theWorld.distributeMarket();
+		theWorld.setPreviousTotalGDP(theWorld.calculateTotalGDP());
+		theWorld.setCurrentTotalGDP(theWorld.calculateTotalGDP());
 		
 		addLabels();
 		drawWorld();
 	}
 
 	public void runWorld() {
-		for (int i = 0; i < 16; i++) { // runs for 5 years
+		while (theWorld.getBankruptCompaniesSize() < 20 || theWorld.isCompanyOverBudget() == false){
 			theWorld.nextBusinessQuarter();
 			pause(1000);
 			waitForClick();
@@ -80,7 +81,7 @@ public class WorldController extends GraphicsProgram {
 	}
 
 	public void drawBlankWorld() {
-		for (int row = 0; row < 63; row++)
+		for (int row = 0; row < theWorld.getWidth(); row++)
 			for (int col = 0; col < theWorld.getHeight(); col++) {
 				GRect r = new GRect(row * 15, col * 15, 15, 15);
 				r.setFillColor(Color.WHITE);
@@ -92,12 +93,15 @@ public class WorldController extends GraphicsProgram {
 	public void addLabels() {
 		previousTotalGDP = new GLabel("Previous Total GDP (in ten millions): $" + theWorld.getPreviousTotalGDP());
 		currentTotalGDP = new GLabel("Current Total GDP (in ten millions): $" + theWorld.getCurrentTotalGDP());
+		double change = ((theWorld.getCurrentTotalGDP() - theWorld.getPreviousTotalGDP())%theWorld.getPreviousTotalGDP()) % 100;
+		changeInGDP = new GLabel("Change in GDP: " + change + "%");
 		businessQuarter = new GLabel("Current Business Quarter: " + theWorld.getBusinessQuarter());
 		bankrupt = new GLabel("Total Bankrupt Companies: " + theWorld.getBankruptCompaniesSize());
 		
 		businessQuarter.setLocation(APPLICATION_WIDTH - 400, 50);
-		previousTotalGDP.setLocation(APPLICATION_WIDTH - 400, 100);
-		currentTotalGDP.setLocation(APPLICATION_WIDTH - 400, 150);
+		previousTotalGDP.setLocation(APPLICATION_WIDTH - 400, 85);
+		currentTotalGDP.setLocation(APPLICATION_WIDTH - 400, 120);
+		changeInGDP.setLocation(APPLICATION_WIDTH - 400, 155);
 		bankrupt.setLocation(APPLICATION_WIDTH - 400, 670);
 		
 		Font a = new Font ("TimesRoman", Font.PLAIN, 15);
@@ -105,10 +109,12 @@ public class WorldController extends GraphicsProgram {
 		previousTotalGDP.setFont(a);
 		currentTotalGDP.setFont(b);
 		businessQuarter.setFont(a);
+		changeInGDP.setFont(a);
 		bankrupt.setFont(b);
 		
 		theWorldCanvas.add(previousTotalGDP);
 		theWorldCanvas.add(currentTotalGDP);
+		theWorldCanvas.add(changeInGDP);
 		theWorldCanvas.add(businessQuarter);
 		theWorldCanvas.add(bankrupt);
 		addCompanyLabels();
@@ -117,6 +123,7 @@ public class WorldController extends GraphicsProgram {
 	public void removeLabels() {
 		theWorldCanvas.remove(previousTotalGDP);
 		theWorldCanvas.remove(currentTotalGDP);
+		theWorldCanvas.remove(changeInGDP);
 		theWorldCanvas.remove(businessQuarter);
 		theWorldCanvas.remove(bankrupt);
 		theWorldCanvas.remove(companies);
@@ -145,7 +152,7 @@ public class WorldController extends GraphicsProgram {
 	
 	public void addCompanyLabels() {
 		ArrayList<Company> list = theWorld.getoilCompanyList();
-		companies = new GLabel("List of Companies and their Budgets (in ten millions)");
+		companies = new GLabel("List of Companies & their Budgets (in ten millions):");
 		BP = new GLabel("British Petroleum: " + list.get(0).getMyBudget());
 		Chevron = new GLabel("Chevron: " + list.get(1).getMyBudget());
 		CNOO = new GLabel("China National Offshow Oil: " + list.get(2).getMyBudget());
@@ -193,27 +200,28 @@ public class WorldController extends GraphicsProgram {
 		
 		Font a = new Font ("TimesRoman", Font.PLAIN, 15);
 		Font b = new Font ("TimesRoman", Font.PLAIN, 14);
+		Font c = new Font ("TimesRoman", Font.ITALIC, 14);
 		companies.setFont(a);
 		BP.setFont(b);
 		Chevron.setFont(b);
-		CNOO.setFont(b);
-		CNPC.setFont(b);
-		Engie.setFont(b);
+		CNOO.setFont(c);
+		CNPC.setFont(c);
+		Engie.setFont(c);
 		Exxon.setFont(b);
-		Gazprom.setFont(b);
+		Gazprom.setFont(c);
 		JXH.setFont(b);
-		Lukoil.setFont(b);
+		Lukoil.setFont(c);
 		MP.setFont(b);
-		NIOC.setFont(b);
+		NIOC.setFont(c);
 		ONGC.setFont(b);
-		Pemex.setFont(b);
-		Petrobras.setFont(b);
+		Pemex.setFont(c);
+		Petrobras.setFont(c);
 		P66.setFont(b);
-		Rosneft.setFont(b);
-		SA.setFont(b);
-		Shell.setFont(b);
+		Rosneft.setFont(c);
+		SA.setFont(c);
+		Shell.setFont(c);
 		SG.setFont(b);
-		TSA.setFont(b);
+		TSA.setFont(c);
 		Valero.setFont(b);
 		
 		BP.setColor(list.get(0).getMyColor());

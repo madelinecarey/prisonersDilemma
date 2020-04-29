@@ -174,6 +174,10 @@ public class World {
 		previousTotalGDP = x;
 	}
 	
+	public void setCurrentTotalGDP(double x) {
+		currentTotalGDP = x;
+	}
+	
 	public int getPreviousTotalGDP(){
 		int GDP = (int)previousTotalGDP;
 		return GDP;
@@ -310,6 +314,15 @@ public class World {
 	
 	public int getBankruptCompaniesSize() {
 		return bankruptCompanies.size();
+	}
+	
+	public boolean isCompanyOverBudget() {
+		for (Company x : oilCompanyList) {
+			if (x.getMyBudget() >= 162) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	@Override
