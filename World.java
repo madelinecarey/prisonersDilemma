@@ -142,7 +142,7 @@ public class World {
 	
 	public double calculateTotalGDP() {
 		currentTotalGDP = 0.0;
-		for(int i = 0; i < oilCompanyList.size(); i++) {
+		for(int i = 0; i < oilCompanyList.size(); i++){
 			double companyPrice = oilCompanyList.get(i).getMyPrice();
 			double companyQuantity = Double.valueOf(oilCompanyList.get(i).getMyBudget());
 			double companyRevenue = companyPrice * companyQuantity;

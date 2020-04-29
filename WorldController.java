@@ -38,13 +38,12 @@ public class WorldController extends GraphicsProgram {
 	GLabel TSA;
 	GLabel Valero;
 	GLabel bankrupt;
-	public static final int APPLICATION_WIDTH = 1300;
+	public static final int APPLICATION_WIDTH = 1400;
 	public static final int APPLICATION_HEIGHT = 820;
 
 	public void run() {
 		setUpWorld();
 		runWorld();
-//		makeCompanyLabel(1);
 	}
 
 	public void init() {
@@ -65,9 +64,10 @@ public class WorldController extends GraphicsProgram {
 	}
 
 	public void runWorld() {
-		for (int i = 0; i < 12; i++) { // runs for 5 years
+		for (int i = 0; i < 16; i++) { // runs for 5 years
 			theWorld.nextBusinessQuarter();
 			pause(1000);
+			waitForClick();
 			drawWorld();
 		}
 	}
@@ -90,15 +90,15 @@ public class WorldController extends GraphicsProgram {
 	}
 	
 	public void addLabels() {
-		previousTotalGDP = new GLabel("Previous Total GDP: $" + theWorld.getPreviousTotalGDP());
-		currentTotalGDP = new GLabel("Current Total GDP: $" + theWorld.getCurrentTotalGDP());
+		previousTotalGDP = new GLabel("Previous Total GDP (in ten millions): $" + theWorld.getPreviousTotalGDP());
+		currentTotalGDP = new GLabel("Current Total GDP (in ten millions): $" + theWorld.getCurrentTotalGDP());
 		businessQuarter = new GLabel("Current Business Quarter: " + theWorld.getBusinessQuarter());
 		bankrupt = new GLabel("Total Bankrupt Companies: " + theWorld.getBankruptCompaniesSize());
 		
-		businessQuarter.setLocation(APPLICATION_WIDTH - 300, 50);
-		previousTotalGDP.setLocation(APPLICATION_WIDTH - 300, 100);
-		currentTotalGDP.setLocation(APPLICATION_WIDTH - 300, 150);
-		bankrupt.setLocation(APPLICATION_WIDTH - 300, 670);
+		businessQuarter.setLocation(APPLICATION_WIDTH - 400, 50);
+		previousTotalGDP.setLocation(APPLICATION_WIDTH - 400, 100);
+		currentTotalGDP.setLocation(APPLICATION_WIDTH - 400, 150);
+		bankrupt.setLocation(APPLICATION_WIDTH - 400, 670);
 		
 		Font a = new Font ("TimesRoman", Font.PLAIN, 15);
 		Font b = new Font ("TimesRoman", Font.BOLD, 15);
@@ -145,7 +145,7 @@ public class WorldController extends GraphicsProgram {
 	
 	public void addCompanyLabels() {
 		ArrayList<Company> list = theWorld.getoilCompanyList();
-		companies = new GLabel("List of Companies and their Budgets");
+		companies = new GLabel("List of Companies and their Budgets (in ten millions)");
 		BP = new GLabel("British Petroleum: " + list.get(0).getMyBudget());
 		Chevron = new GLabel("Chevron: " + list.get(1).getMyBudget());
 		CNOO = new GLabel("China National Offshow Oil: " + list.get(2).getMyBudget());
@@ -168,31 +168,31 @@ public class WorldController extends GraphicsProgram {
 		TSA = new GLabel("Total SA: " + list.get(19).getMyBudget());
 		Valero = new GLabel("Valero: " + list.get(20).getMyBudget());
 		
-		companies.setLocation(APPLICATION_WIDTH - 300, 200);
-		BP.setLocation(APPLICATION_WIDTH - 300, 220);
-		Chevron.setLocation(APPLICATION_WIDTH - 300, 240);
-		CNOO.setLocation(APPLICATION_WIDTH - 300, 260);
-		CNPC.setLocation(APPLICATION_WIDTH - 300, 280);
-		Engie.setLocation(APPLICATION_WIDTH - 300, 300);
-		Exxon.setLocation(APPLICATION_WIDTH - 300, 320);
-		Gazprom.setLocation(APPLICATION_WIDTH - 300, 340);
-		JXH.setLocation(APPLICATION_WIDTH - 300, 360);
-		Lukoil.setLocation(APPLICATION_WIDTH - 300, 380);
-		MP.setLocation(APPLICATION_WIDTH - 300, 400);
-		NIOC.setLocation(APPLICATION_WIDTH - 300, 420);
-		ONGC.setLocation(APPLICATION_WIDTH - 300, 440);
-		Pemex.setLocation(APPLICATION_WIDTH - 300, 460);
-		Petrobras.setLocation(APPLICATION_WIDTH - 300, 480);
-		P66.setLocation(APPLICATION_WIDTH - 300, 500);
-		Rosneft.setLocation(APPLICATION_WIDTH - 300, 520);
-		SA.setLocation(APPLICATION_WIDTH - 300, 540);
-		Shell.setLocation(APPLICATION_WIDTH - 300, 560);
-		SG.setLocation(APPLICATION_WIDTH - 300, 580);
-		TSA.setLocation(APPLICATION_WIDTH - 300, 600);
-		Valero.setLocation(APPLICATION_WIDTH - 300, 620);
+		companies.setLocation(APPLICATION_WIDTH - 400, 200);
+		BP.setLocation(APPLICATION_WIDTH - 400, 220);
+		Chevron.setLocation(APPLICATION_WIDTH - 400, 240);
+		CNOO.setLocation(APPLICATION_WIDTH - 400, 260);
+		CNPC.setLocation(APPLICATION_WIDTH - 400, 280);
+		Engie.setLocation(APPLICATION_WIDTH - 400, 300);
+		Exxon.setLocation(APPLICATION_WIDTH - 400, 320);
+		Gazprom.setLocation(APPLICATION_WIDTH - 400, 340);
+		JXH.setLocation(APPLICATION_WIDTH - 400, 360);
+		Lukoil.setLocation(APPLICATION_WIDTH - 400, 380);
+		MP.setLocation(APPLICATION_WIDTH - 400, 400);
+		NIOC.setLocation(APPLICATION_WIDTH - 400, 420);
+		ONGC.setLocation(APPLICATION_WIDTH - 400, 440);
+		Pemex.setLocation(APPLICATION_WIDTH - 400, 460);
+		Petrobras.setLocation(APPLICATION_WIDTH - 400, 480);
+		P66.setLocation(APPLICATION_WIDTH - 400, 500);
+		Rosneft.setLocation(APPLICATION_WIDTH - 400, 520);
+		SA.setLocation(APPLICATION_WIDTH - 400, 540);
+		Shell.setLocation(APPLICATION_WIDTH - 400, 560);
+		SG.setLocation(APPLICATION_WIDTH - 400, 580);
+		TSA.setLocation(APPLICATION_WIDTH - 400, 600);
+		Valero.setLocation(APPLICATION_WIDTH - 400, 620);
 		
 		Font a = new Font ("TimesRoman", Font.PLAIN, 15);
-		Font b = new Font ("TimesRoman", Font.PLAIN, 10);
+		Font b = new Font ("TimesRoman", Font.PLAIN, 14);
 		companies.setFont(a);
 		BP.setFont(b);
 		Chevron.setFont(b);
