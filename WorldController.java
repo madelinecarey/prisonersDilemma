@@ -55,6 +55,7 @@ public class WorldController extends GraphicsProgram {
 		theWorld = new World(63, 54);
 		theWorldCanvas = this.getGCanvas();
 		theWorld.addCompanies();
+		theWorld.evenThePlayingField();
 		theWorld.newMarketShares();
 		theWorld.distributeMarket();
 		theWorld.setPreviousTotalGDP(theWorld.calculateTotalGDP());
@@ -67,15 +68,14 @@ public class WorldController extends GraphicsProgram {
 	public void runWorld() {
 		while (theWorld.getBankruptCompaniesSize() < 20 || theWorld.isCompanyOverBudget() == false){
 			theWorld.nextBusinessQuarter();
-			pause(1000);
 			waitForClick();
 			drawWorld();
 		}
 	}
 
 	public void drawWorld() {
+		theWorldCanvas.removeAll();
 		drawBlankWorld();
-		removeLabels();
 		addLabels();
 		colorSquares();
 	}

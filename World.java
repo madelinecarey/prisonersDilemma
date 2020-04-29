@@ -97,9 +97,10 @@ public class World {
 	
 	public void distributeMarket() { // Sets location points for each company
 		for (int i = 0; i < oilCompanyList.size(); i++) {
+			ArrayList<Location> points = new ArrayList();
 			Company company = oilCompanyList.get(i);
 			Location progressPoint = new Location((i * 45), 0);
-			company.addLocation(progressPoint);
+			points.add(progressPoint);
 			for (int j = 0; j < (company.getMyBudget() - 1); j++) {
 				int x = progressPoint.getX();
 				int y = progressPoint.getY();
@@ -113,9 +114,10 @@ public class World {
 					x += 15;
 				}
 				Location newSquare = new Location (x,y);
-				company.addLocation(newSquare);
+				points.add(newSquare);
 				progressPoint = newSquare;
 			}
+			company.setMyLocations(points);
 		}
 	}
 
@@ -324,6 +326,12 @@ public class World {
 		}
 		return false;
 	}
+	
+	public void evenThePlayingField() {
+	 	for (Company company : oilCompanyList) {
+	 		company.setMyBudget(50);
+	 	}
+	 }
 	
 	@Override
 	public String toString() {
