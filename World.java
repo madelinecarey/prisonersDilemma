@@ -91,26 +91,25 @@ public class World {
 		oilCompanyList.add(Valero);
 	}
 	
-	public void distributeMarket() {
-		Location progressPoint = new Location(0,0);
-		boolean goingDown = true;
-		for (Company company : oilCompanyList) {
+	public void distributeMarket() { // Sets location points for each company
+		for (int i = 0; i < oilCompanyList.size(); i++) {
+			Company company = oilCompanyList.get(i);
+			Location progressPoint = new Location((i * 45), 0);
+			company.addLocation(progressPoint);
 			assignQuantity(company);
-			for (int i = 0; i < company.getMyQuantity(); i++) {
+			for (int j = 0; j < (company.getMyQuantity() - 1); j++) {
 				int x = progressPoint.getX();
 				int y = progressPoint.getY();
-				if (progressPoint.getY() == 795 && goingDown) {
+				if (y == 795) {
 					x += 15;
-					goingDown = false;
-				} else  if (progressPoint.getY() == 0 && goingDown == false){
-					x += 15;
-					goingDown = true;
-				} else if (goingDown == true) {
+					y = 0;
+				} else if (x == (i * 45) + 30){
+					x = (i*45);
 					y += 15;
 				} else {
-					y -= 15;
+					x += 15;
 				}
-				Location newSquare = new Location(x, y);
+				Location newSquare = new Location (x,y);
 				company.addLocation(newSquare);
 				progressPoint = newSquare;
 			}
@@ -118,7 +117,7 @@ public class World {
 	}
 	
 	public void assignQuantity(Company company) {
-		company.setMyQuantity(3240/company.getMyMarketShare());
+		company.setMyQuantity(company.getMyBudget() / 10000000);
 	}
 
 	public void newBudgets() {

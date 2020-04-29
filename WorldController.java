@@ -2,6 +2,7 @@ package prisonersDilemma;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
 
 import acm.graphics.*;
 import acm.program.*;
@@ -14,7 +15,7 @@ public class WorldController extends GraphicsProgram {
 	GLabel previousTotalGDP;
 	GLabel currentTotalGDP;
 	GLabel businessQuarter;
-	public static final int APPLICATION_WIDTH = 1200;
+	public static final int APPLICATION_WIDTH = 1300;
 	public static final int APPLICATION_HEIGHT = 820;
 
 	public void run() {
@@ -32,16 +33,11 @@ public class WorldController extends GraphicsProgram {
 		theWorldCanvas = this.getGCanvas();
 		theWorld.setPreviousTotalGDP(0.0);
 		
-		drawBlankWorld();
-		addLabels();
-		
 		theWorld.addCompanies();
-		theWorld.makeAgreements();
-		theWorld.findPrices();
-		theWorld.newBudgets();
 		theWorld.newMarketShares();
 		theWorld.distributeMarket();
 		
+		addLabels();
 		drawWorld();
 	}
 
@@ -61,7 +57,7 @@ public class WorldController extends GraphicsProgram {
 	}
 
 	public void drawBlankWorld() {
-		for (int row = 0; row < theWorld.getWidth(); row++)
+		for (int row = 0; row < 63; row++)
 			for (int col = 0; col < theWorld.getHeight(); col++) {
 				GRect r = new GRect(row * 15, col * 15, 15, 15);
 				r.setFillColor(Color.WHITE);
@@ -75,9 +71,9 @@ public class WorldController extends GraphicsProgram {
 		currentTotalGDP = new GLabel("Current Total GDP: $" + theWorld.getCurrentTotalGDP());
 		businessQuarter = new GLabel("Current Business Quarter: " + theWorld.getBusinessQuarter());
 		
-		businessQuarter.setLocation(APPLICATION_WIDTH - 270, 50);
-		previousTotalGDP.setLocation(APPLICATION_WIDTH - 270, 100);
-		currentTotalGDP.setLocation(APPLICATION_WIDTH - 270, 150);
+		businessQuarter.setLocation(APPLICATION_WIDTH - 300, 50);
+		previousTotalGDP.setLocation(APPLICATION_WIDTH - 300, 100);
+		currentTotalGDP.setLocation(APPLICATION_WIDTH - 300, 150);
 		
 		Font a = new Font ("TimesRoman", Font.PLAIN, 15);
 		Font b = new Font ("TimesRoman", Font.BOLD, 15);
@@ -96,11 +92,14 @@ public class WorldController extends GraphicsProgram {
 		theWorldCanvas.remove(businessQuarter);
 	}
 
-	public void colorSquares() {
-		for (Company x : theWorld.getoilCompanyList()) {
-			for (Location l : x.getMyLocations()) {
-				GRect r = new GRect(l.getX() * 15, l.getY() * 15, 15, 15);
-				r.setFillColor(x.getMyColor());
+	public void colorSquares() { // Take in the locations from the companies and fill the world with the appropriate color
+		for (int i = 0; i < theWorld.getoilCompanyList().size(); i++) {
+			Company company = theWorld.getoilCompanyList().get(i);
+			ArrayList<Location> points = company.getMyLocations();
+			for (int j = 0; j < points.size(); j++) {
+				Location l = points.get(j);
+				GRect r = new GRect(l.getX(), l.getY(), 15, 15); // Each square corresponds to $10000000 in each company's budget
+				r.setFillColor(company.getMyColor());
 				r.setFilled(true);
 				theWorldCanvas.add(r);
 			}
