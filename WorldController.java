@@ -68,7 +68,6 @@ public class WorldController extends GraphicsProgram {
 	public void runWorld() {
 		while (theWorld.getBankruptCompaniesSize() < 20 || theWorld.isCompanyOverBudget() == false){
 			theWorld.nextBusinessQuarter();
-			pause(1000);
 			waitForClick();
 			drawWorld();
 		}
