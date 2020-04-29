@@ -8,7 +8,7 @@ public class Shell extends Company {
 
 	public Shell() {
 		super();
-		myBudget = 396000000;
+		myBudget = 39.6;
 		myLocations = new ArrayList<Location>();
 		myColor = Blue;
 		myMarketShare = 10.1;

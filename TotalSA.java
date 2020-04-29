@@ -8,7 +8,7 @@ public class TotalSA extends Company {
 
 	public TotalSA() {
 		super();
-		myBudget = 209000000;
+		myBudget = 20.9;
 		myLocations = new ArrayList<Location>();
 		myColor = Light_Gray;
 		myMarketShare = 5.4;

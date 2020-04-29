@@ -8,7 +8,7 @@ public class petrobras extends Company {
 
 	public petrobras() {
 		super();
-		myBudget = 950000000;
+		myBudget = 95.0;
 		myLocations = new ArrayList<Location>();
 		myColor = Yellow;
 		myMarketShare = 2.4;

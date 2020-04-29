@@ -8,7 +8,7 @@ public class nationalIranianOilCompany extends Company {
 
 	public nationalIranianOilCompany() {
 		super();
-		myBudget = 110000000;
+		myBudget = 11.0;
 		myLocations = new ArrayList<Location>();
 		myColor = Green;
 		myMarketShare = 2.8;

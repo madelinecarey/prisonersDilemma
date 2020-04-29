@@ -8,7 +8,7 @@ public class Valero extends Company {
 	
 	public Valero() {
 		super();
-		myBudget = 117000000;
+		myBudget = 11.7;
 		myLocations = new ArrayList<Location>();
 		myColor = Cyan;
 		myMarketShare = 3.1;

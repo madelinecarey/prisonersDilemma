@@ -8,7 +8,7 @@ public class Phillips66 extends Company {
 
 	public Phillips66() {
 		super();
-		myBudget = 102000000;
+		myBudget = 10.2;
 		myLocations = new ArrayList<Location>();
 		myColor = Cyan;
 		myMarketShare = 2.6;

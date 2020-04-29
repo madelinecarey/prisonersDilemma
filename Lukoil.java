@@ -8,7 +8,7 @@ public class Lukoil extends Company {
 
 	public Lukoil() {
 		super();
-		myBudget = 128000000;
+		myBudget = 12.8;
 		myLocations = new ArrayList<Location>();
 		myColor = Black;
 		myMarketShare = 3.3;

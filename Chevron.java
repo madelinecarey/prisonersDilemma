@@ -8,7 +8,7 @@ public class Chevron extends Company {
 	
 	public Chevron() {
 		super();
-		myBudget = 159000000;
+		myBudget = 15.9;
 		myLocations = new ArrayList<Location>();
 		myColor = Cyan;
 		myMarketShare = 4.1;

@@ -8,7 +8,7 @@ public class Rosneft extends Company {
 
 	public Rosneft() {
 		super();
-		myBudget = 118000000;
+		myBudget = 11.8;
 		myLocations = new ArrayList<Location>();
 		myColor = Black;
 		myMarketShare = 3;

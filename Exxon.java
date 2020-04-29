@@ -8,7 +8,7 @@ public class Exxon extends Company {
 	
 	public Exxon() {
 		super();
-		myBudget = 290000000;
+		myBudget = 29.0;
 		myLocations = new ArrayList<Location>();
 		myColor = Cyan;
 		myMarketShare = 7.4;

@@ -8,7 +8,7 @@ public class SaudiAramco extends Company {
 
 	public SaudiAramco() {
 		super();
-		myBudget = 355000000;
+		myBudget = 35.5;
 		myLocations = new ArrayList<Location>();
 		myColor = Green;
 		myMarketShare = 9.1;

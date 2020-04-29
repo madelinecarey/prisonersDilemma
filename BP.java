@@ -8,7 +8,7 @@ public class BP extends Company {
 	
 	public BP() {
 		super();
-		myBudget = 303000000;
+		myBudget = 30.3;
 		myLocations = new ArrayList<Location>();
 		myColor = Blue;
 		myMarketShare = 7.8;

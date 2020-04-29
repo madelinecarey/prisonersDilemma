@@ -1,5 +1,6 @@
 package prisonersDilemma;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import acm.util.RandomGenerator;
@@ -12,13 +13,14 @@ public class World {
 	private double currentTotalGDP;
 	public int businessQuarter;
 	public ArrayList<Company> oilCompanyList;
-	public CollusiveAgreement agreement1;
-	public CollusiveAgreement agreement2;
-	public CollusiveAgreement agreement3;
-	public CollusiveAgreement agreement4;
-	public CollusiveAgreement agreement5;
-	public CollusiveAgreement agreement6;
-	public CollusiveAgreement agreement7;
+	public ArrayList<Company> bankruptCompanies;
+	public ArrayList<Company> agreement1;
+	public ArrayList<Company> agreement2;
+	public ArrayList<Company> agreement3;
+	public ArrayList<Company> agreement4;
+	public ArrayList<Company> agreement5;
+	public ArrayList<Company> agreement6;
+	public ArrayList<Company> agreement7;
 	private RandomGenerator rgen = new RandomGenerator();
 
 	public World(int width, int height) {
@@ -29,16 +31,18 @@ public class World {
 		this.currentTotalGDP = 0.0;
 		this.businessQuarter = 0;
 		this.oilCompanyList = new ArrayList<Company>();
+		this.bankruptCompanies = new ArrayList<Company>();
 	}
 
 	public void nextBusinessQuarter(){
 		businessQuarter++;
+		purgeTheBankrupt();
 		previousTotalGDP = currentTotalGDP;
 		if (businessQuarter % 4 == 0) { // Makes sure prices are adjusted every four years
 			adjustPrices();
 		}
 		makeAgreements();
-		findPrices();
+		findBudgets();
 		newBudgets();
 		newMarketShares();
 		distributeMarket();
@@ -96,8 +100,7 @@ public class World {
 			Company company = oilCompanyList.get(i);
 			Location progressPoint = new Location((i * 45), 0);
 			company.addLocation(progressPoint);
-			assignQuantity(company);
-			for (int j = 0; j < (company.getMyQuantity() - 1); j++) {
+			for (int j = 0; j < (company.getMyBudget() - 1); j++) {
 				int x = progressPoint.getX();
 				int y = progressPoint.getY();
 				if (y == 795) {
@@ -114,10 +117,6 @@ public class World {
 				progressPoint = newSquare;
 			}
 		}
-	}
-	
-	public void assignQuantity(Company company) {
-		company.setMyQuantity(company.getMyBudget() / 10000000);
 	}
 
 	public void newBudgets() {
@@ -145,7 +144,7 @@ public class World {
 		currentTotalGDP = 0.0;
 		for(int i = 0; i < oilCompanyList.size(); i++) {
 			double companyPrice = oilCompanyList.get(i).getMyPrice();
-			double companyQuantity = Double.valueOf(oilCompanyList.get(i).getMyQuantity());
+			double companyQuantity = Double.valueOf(oilCompanyList.get(i).getMyBudget());
 			double companyRevenue = companyPrice * companyQuantity;
 			currentTotalGDP += companyRevenue;
 		}
@@ -189,14 +188,21 @@ public class World {
 		return businessQuarter;
 	}
 
-	public void makeAgreements() {
+	public void makeAgreements() { // Randomizes the agreements
 		ArrayList<Integer> numbersUsed = new ArrayList<Integer>();
 		while (numbersUsed.size() < 21) {
 			int x = rgen.nextInt(0, 20);
 			if(numbersUsed.indexOf(x) == -1) { // if the number doesn't exist in the list
 				numbersUsed.add(x);
 			}
-		}
+		}	
+		agreement1 = new ArrayList();
+		agreement2 = new ArrayList();
+		agreement3 = new ArrayList();
+		agreement4 = new ArrayList();
+		agreement5 = new ArrayList();
+		agreement6 = new ArrayList();
+		agreement7 = new ArrayList();
 		addAgreements(numbersUsed);
 	}
 		
@@ -252,45 +258,60 @@ public class World {
 		}
 	}
 	
-	public void assignPrices(CollusiveAgreement agreement) {
-		Company company1 = agreement.getCompany(1);
-		Company company2 = agreement.getCompany(2);
-		Company company3 = agreement.getCompany(3);
+	public void assignBudgets(ArrayList<Company> agreement) {
+		Company company1 = agreement.get(0);
+		Company company2 = agreement.get(1);
+		Company company3 = agreement.get(2);
 		if(company1.typeOfCompany == true && company2.typeOfCompany == true && company3.typeOfCompany == true) {
-			company1.setMyPrice(company1.getMyPrice() * 1.05);
-			company2.setMyPrice(company2.getMyPrice() * 1.05);
-			company3.setMyPrice(company3.getMyPrice() * 1.05);
+			company1.setMyBudget(company1.getMyBudget() + 4);
+			company2.setMyBudget(company2.getMyBudget() + 4);
+			company3.setMyBudget(company3.getMyBudget() + 4);
 		} else if(company1.typeOfCompany == false && company2.typeOfCompany == false && company3.typeOfCompany == false) {
-			company1.setMyPrice(company1.getMyPrice() * 0.95);
-			company2.setMyPrice(company2.getMyPrice() * 0.95);
-			company3.setMyPrice(company3.getMyPrice() * 0.95);
+			company1.setMyBudget(company1.getMyBudget() - 3);
+			company2.setMyBudget(company2.getMyBudget() - 3);
+			company3.setMyBudget(company3.getMyBudget() - 3);
 		} else {
 			if(company1.typeOfCompany == true) {
-				company1.setMyPrice(company1.getMyPrice() * 0.97);
+				company1.setMyBudget(company1.getMyBudget() - 5);
 			} else {
-				company1.setMyPrice(company1.getMyPrice() * 1.07);
+				company1.setMyBudget(company1.getMyBudget() + 8);
 			} if(company2.typeOfCompany == true) {
-				company2.setMyPrice(company2.getMyPrice() * 0.97);
+				company2.setMyBudget(company2.getMyBudget() - 5);
 			} else {
-				company2.setMyPrice(company2.getMyPrice() * 1.07);
+				company2.setMyBudget(company2.getMyBudget() + 8);
 			} if(company3.typeOfCompany == true) {
-				company3.setMyPrice(company3.getMyPrice() * 0.97);
+				company3.setMyPrice(company3.getMyPrice() - 5);
 			} else {
-				company3.setMyPrice(company3.getMyPrice() * 1.07);
+				company3.setMyPrice(company3.getMyPrice() + 8);
 			}
 		}
 	}
 	
-	public void findPrices() {
-		assignPrices(agreement1);
-		assignPrices(agreement2);
-		assignPrices(agreement3);
-		assignPrices(agreement4);
-		assignPrices(agreement5);
-		assignPrices(agreement6);
-		assignPrices(agreement7);
+	public void findBudgets() {
+		assignBudgets(agreement1);
+		assignBudgets(agreement2);
+		assignBudgets(agreement3);
+		assignBudgets(agreement4);
+		assignBudgets(agreement5);
+		assignBudgets(agreement6);
+		assignBudgets(agreement7);
 	}
 
+	public void purgeTheBankrupt() { // The bankrupt can still make trades but won't show up on graph
+		bankruptCompanies = new ArrayList<Company>();
+		for (Company x : oilCompanyList) {
+			x.checkIfBankrupt();
+			if (x.isBankrupt() == true) {
+				x.setMyColor(Color.WHITE);
+				bankruptCompanies.add(x);
+			}
+		}
+	}
+	
+	public int getBankruptCompaniesSize() {
+		return bankruptCompanies.size();
+	}
+	
 	@Override
 	public String toString() {
 		return "World [width=" + width + ", height=" + height

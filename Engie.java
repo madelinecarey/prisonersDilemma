@@ -8,7 +8,7 @@ public class Engie extends Company {
 	
 	public Engie() {
 		super();
-		myBudget = 89000000;
+		myBudget = 89.0;
 		myLocations = new ArrayList<Location>();
 		myColor = Gray;
 		myMarketShare = 2.3;

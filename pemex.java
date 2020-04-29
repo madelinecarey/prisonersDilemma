@@ -8,7 +8,7 @@ public class pemex extends Company {
 
 	public pemex() {
 		super();
-		myBudget = 85000000;
+		myBudget = 85.0;
 		myLocations = new ArrayList<Location>();
 		myColor = Light_Gray;
 		myMarketShare = 2.1;

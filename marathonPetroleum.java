@@ -8,7 +8,7 @@ public class marathonPetroleum extends Company {
 
 	public marathonPetroleum() {
 		super();
-		myBudget = 97000000;
+		myBudget = 97.0;
 		myLocations = new ArrayList<Location>();
 		myColor = Cyan;
 		myMarketShare = 2.5;

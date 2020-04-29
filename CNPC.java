@@ -8,7 +8,7 @@ public class CNPC extends Company {
 	
 	public CNPC() {
 		super();
-		myBudget = 392000000;
+		myBudget = 39.2;
 		myLocations = new ArrayList<Location>();
 		myColor = Red;
 		myMarketShare = 10;

@@ -8,7 +8,7 @@ public class SinopecGroup extends Company {
 
 	public SinopecGroup() {
 		super();
-		myBudget = 414000000;
+		myBudget = 41.4;
 		myLocations = new ArrayList<Location>();
 		myColor = Red;
 		myMarketShare = 10.6;

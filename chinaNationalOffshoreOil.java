@@ -8,7 +8,7 @@ public class chinaNationalOffshoreOil extends Company {
 	
 	public chinaNationalOffshoreOil() {
 		super();
-		myBudget = 98000000;
+		myBudget = 98.0;
 		myLocations = new ArrayList<Location>();
 		myColor = Red;
 		myMarketShare = 2.5;

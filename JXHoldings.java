@@ -9,7 +9,7 @@ public class JXHoldings extends Company {
 	
 	public JXHoldings() {
 		super();
-		myBudget = 103000000;
+		myBudget = 10.3;
 		myLocations = new ArrayList<Location>();
 		myColor = Purple;
 		myMarketShare = 2.6;

@@ -8,7 +8,7 @@ public class ONGC extends Company {
 
 	public ONGC() {
 		super();
-		myBudget = 127000000;
+		myBudget = 12.7;
 		myLocations = new ArrayList<Location>();
 		myColor = Orange;
 		myMarketShare = 3.3;
