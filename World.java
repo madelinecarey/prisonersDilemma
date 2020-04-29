@@ -325,6 +325,12 @@ public class World {
 		return false;
 	}
 	
+public void evenThePlayingField() {
+	for (Company company : oilCompanyList) {
+		company.setMyBudget(50);
+	}
+}
+	
 	@Override
 	public String toString() {
 		return "World [width=" + width + ", height=" + height
