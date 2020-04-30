@@ -326,7 +326,7 @@ public class World {
 		}
 		return false;
 	}
-	
+
 	public void evenThePlayingField() {
 	 	for (Company company : oilCompanyList) {
 	 		company.setMyBudget(50);
