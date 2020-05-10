@@ -55,7 +55,7 @@ public class WorldController extends GraphicsProgram {
 		theWorld = new World(63, 54);
 		theWorldCanvas = this.getGCanvas();
 		theWorld.addCompanies();
-		theWorld.evenThePlayingField();
+		//theWorld.evenThePlayingField();
 		theWorld.newMarketShares();
 		theWorld.distributeMarket();
 		theWorld.setPreviousTotalGDP(theWorld.calculateTotalGDP());
@@ -76,8 +76,8 @@ public class WorldController extends GraphicsProgram {
 	public void drawWorld() {
 		theWorldCanvas.removeAll();
 		drawBlankWorld();
-		addLabels();
 		colorSquares();
+		addLabels();
 	}
 
 	public void drawBlankWorld() {
@@ -93,7 +93,7 @@ public class WorldController extends GraphicsProgram {
 	public void addLabels() {
 		previousTotalGDP = new GLabel("Previous Total GDP (in ten millions): $" + theWorld.getPreviousTotalGDP());
 		currentTotalGDP = new GLabel("Current Total GDP (in ten millions): $" + theWorld.getCurrentTotalGDP());
-		double change = ((theWorld.getCurrentTotalGDP() - theWorld.getPreviousTotalGDP())%theWorld.getPreviousTotalGDP()) % 100;
+		double change = ((theWorld.getCurrentTotalGDPDouble() - theWorld.getPreviousTotalGDPDouble())/theWorld.getPreviousTotalGDPDouble()) * 100;
 		changeInGDP = new GLabel("Change in GDP: " + change + "%");
 		businessQuarter = new GLabel("Current Business Quarter: " + theWorld.getBusinessQuarter());
 		bankrupt = new GLabel("Total Bankrupt Companies: " + theWorld.getBankruptCompaniesSize());
@@ -283,20 +283,6 @@ public class WorldController extends GraphicsProgram {
 			}
 		}
 	}
-
-/*	public void makeCompanyLabel(int companyNum) {
-		GRect r = new GRect(990, (companyNum * 15) + (companyNum * 10) + 50, 15, 15);
-		r.setFillColor(theWorld.oilCompanyList.get(companyNum).getMyColor());
-		r.setFilled(true);
-		theWorldCanvas.add(r);
-
-		GLabel name = new GLabel(getActualName(companyNum), 1000, (companyNum * 15) + (companyNum * 10) + 50);
-		theWorldCanvas.add(name);
-
-		GLabel revenue = new GLabel("" + theWorld.oilCompanyList.get(companyNum).getMyBudget(), 990,
-				(companyNum * 15) + (companyNum * 10) + 55);
-		theWorldCanvas.add(revenue);
-	}*/
 
 	public String getActualName(int companyNum) {
 		if (companyNum == 0) {

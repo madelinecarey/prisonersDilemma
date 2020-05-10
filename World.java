@@ -190,6 +190,14 @@ public class World {
 		return GDP;
 	}
 	
+	public double getPreviousTotalGDPDouble() {
+		return previousTotalGDP;
+	}
+	
+	public double getCurrentTotalGDPDouble() {
+		return currentTotalGDP;
+	}
+	
 	public int getBusinessQuarter() {
 		return businessQuarter;
 	}
@@ -268,7 +276,7 @@ public class World {
 		Company company1 = agreement.get(0);
 		Company company2 = agreement.get(1);
 		Company company3 = agreement.get(2);
-		if(company1.typeOfCompany == true && company2.typeOfCompany == true && company3.typeOfCompany == true) {
+		if(company1.typeOfCompany == true && company2.typeOfCompany == true && company3.typeOfCompany == true) {// All companies collude
 			company1.setMyBudget(company1.getMyBudget() + 4);
 			company2.setMyBudget(company2.getMyBudget() + 4);
 			company3.setMyBudget(company3.getMyBudget() + 4);
