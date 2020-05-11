@@ -223,7 +223,7 @@ public class World {
 
 	public void addAgreements(ArrayList<Integer> numbersUsed) {
 		for(int i=0; i<3; i++) {
-			agreement1.add(oilCompanyList.get(numbersUsed.get(i))); // There's a bug here but i'm not sure why
+			agreement1.add(oilCompanyList.get(numbersUsed.get(i)));
 		} for(int i=3; i<6; i++) {
 			agreement2.add(oilCompanyList.get(numbersUsed.get(i)));
 		} for(int i=6; i<9; i++) {

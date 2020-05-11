@@ -17,4 +17,11 @@ public class WorldDialog extends DialogProgram{
 		return(Double.parseDouble(budget));
 	}
 
+	public boolean evenPlayingField() {
+		String even = (readLine("Do you want the playing field to be even? Enter 'yes' or 'no'"));
+		if(even.equals("yes")) {
+			return true;
+		}
+		return false;
+	}
 }

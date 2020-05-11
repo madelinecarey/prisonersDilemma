@@ -2,6 +2,8 @@ package prisonersDilemma;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.*;
 import java.util.ArrayList;
 
 import acm.graphics.*;
@@ -44,6 +46,7 @@ public class WorldController extends GraphicsProgram {
 	public static final int APPLICATION_HEIGHT = 820;
 
 	public void run() {
+		addMouseListeners();
 		setUpWorld();
 		runWorld();
 	}
@@ -57,7 +60,9 @@ public class WorldController extends GraphicsProgram {
 		theWorld = new World(63, 54);
 		theWorldCanvas = this.getGCanvas();
 		theWorld.addCompanies();
-		//theWorld.evenThePlayingField();
+		if(dialog.evenPlayingField() == true) {
+			theWorld.evenThePlayingField();
+		}
 		theWorld.newMarketShares();
 		theWorld.distributeMarket();
 		theWorld.setPreviousTotalGDP(theWorld.calculateTotalGDP());
@@ -331,4 +336,9 @@ public class WorldController extends GraphicsProgram {
 			return ("Valero");
 		}
 	}
+	
+		public void mouseClicked(MouseEvent e) {
+			int x = e.getX();
+			int y = e.getY();
+		}
 }
