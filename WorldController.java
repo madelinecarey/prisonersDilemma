@@ -10,6 +10,7 @@ import acm.util.*;
 
 public class WorldController extends GraphicsProgram {
 
+	private WorldDialog dialog;
 	private World theWorld;
 	private GCanvas theWorldCanvas;
 	GLabel previousTotalGDP;
@@ -52,6 +53,7 @@ public class WorldController extends GraphicsProgram {
 	}
 
 	public void setUpWorld() {
+		dialog = new WorldDialog();
 		theWorld = new World(63, 54);
 		theWorldCanvas = this.getGCanvas();
 		theWorld.addCompanies();
